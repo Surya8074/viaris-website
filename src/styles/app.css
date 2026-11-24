@@ -22,18 +22,18 @@ button, input { font: inherit; }
 .hero { max-width: 1800px; margin: 0 auto; }
 .hero-photo { position: relative; height: min(760px, calc(100svh - 112px)); min-height: 650px; max-height: 820px; overflow: hidden; isolation: isolate; border-radius: 25px; background: #d8e0d0; }
 .hero-image { position: absolute; z-index: 0; inset: 0; background-image: url('/viaris-website/images/Lakeview%20Residency%20Commute.png'); background-size: cover; background-position: center 55%; transform: scale(1.015); }
-.hero-wash { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(248,249,245,.68) 0%, rgba(248,249,245,.4) 27%, rgba(248,249,245,.03) 52%, rgba(13,25,17,.2) 100%); }
-.hero-topline, .hero-bottomline { position: absolute; left: 36px; right: 36px; display: flex; justify-content: space-between; align-items: center; color: rgba(28,36,29,.72); font-size: 9px; letter-spacing: .16em; font-weight: 700; }
+.hero-wash { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(10,18,12,.46) 0%, rgba(10,18,12,.38) 42%, rgba(10,18,12,.28) 68%, rgba(10,18,12,.52) 100%); }
+.hero-topline, .hero-bottomline { position: absolute; left: 36px; right: 36px; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,.88); font-size: 9px; letter-spacing: .16em; font-weight: 700; }
 .hero-topline { top: 25px; }
 .hero-bottomline { bottom: 24px; color: rgba(255,255,255,.9); }
 .hero-bottomline i { display: inline-block; width: 3px; height: 3px; margin: 0 9px 2px; border-radius: 50%; background: #d4e6c0; }
 .hero-bottomline b { margin-left: 8px; color: #d4e6c0; }
-.hero-copy { position: absolute; top: 7.5%; left: 50%; width: min(820px, 66%); transform: translateX(-50%); text-align: center; color: #101611; }
-.eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 18px; color: #4e6247; font-size: 9px; letter-spacing: .18em; font-weight: 700; }
+.hero-copy { position: absolute; top: 7.5%; left: 50%; width: min(820px, 66%); transform: translateX(-50%); text-align: center; color: #fff; text-shadow: 0 2px 22px rgba(0,0,0,.22); }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 18px; color: #e5efdc; font-size: 9px; letter-spacing: .18em; font-weight: 700; }
 .eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #82a85e; box-shadow: 0 0 0 5px rgba(130,168,94,.14); }
 .hero-copy h1 { margin: 0; font: 700 clamp(54px, 6.1vw, 91px)/.98 'Manrope', sans-serif; letter-spacing: -.078em; }
-.hero-copy h1 em { color: #526f43; font-style: normal; }
-.hero-description { margin: 17px auto 0; color: #424b40; font-size: 14px; line-height: 1.65; }
+.hero-copy h1 em { color: #cfe2b8; font-style: normal; }
+.hero-description { margin: 17px auto 0; color: rgba(255,255,255,.92); font-size: 14px; line-height: 1.65; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
 .hero-cta { display: inline-flex; align-items: center; gap: 18px; margin-top: 20px; padding: 12px 17px; border-radius: 5px; background: #1d281f; color: #fff; text-decoration: none; font-size: 11px; font-weight: 600; transition: background .2s ease, transform .2s ease; }
 .hero-cta:hover { background: #405c3d; transform: translateY(-2px); }
 .below-fold { max-width: 1800px; margin: 100px auto 0; padding: 0 6%; }
@@ -48,7 +48,7 @@ button, input { font: inherit; }
   .menu-button { display: block; }
   .hero-photo { height: auto; min-height: 930px; border-radius: 16px; }
   .hero-image { background-position: 53% center; }
-  .hero-wash { background: linear-gradient(180deg, rgba(248,249,245,.76), rgba(248,249,245,.48) 35%, rgba(248,249,245,.04) 62%, rgba(13,25,17,.34)); }
+  .hero-wash { background: linear-gradient(180deg, rgba(10,18,12,.5), rgba(10,18,12,.38) 42%, rgba(10,18,12,.28) 68%, rgba(10,18,12,.56)); }
   .hero-topline, .hero-bottomline { left: 17px; right: 17px; font-size: 7px; letter-spacing: .1em; }
   .hero-topline { top: 17px; }
   .hero-bottomline { bottom: 15px; }
