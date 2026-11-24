@@ -36,24 +36,6 @@ button, input { font: inherit; }
 .hero-description { margin: 17px auto 0; color: #424b40; font-size: 14px; line-height: 1.65; }
 .hero-cta { display: inline-flex; align-items: center; gap: 18px; margin-top: 20px; padding: 12px 17px; border-radius: 5px; background: #1d281f; color: #fff; text-decoration: none; font-size: 11px; font-weight: 600; transition: background .2s ease, transform .2s ease; }
 .hero-cta:hover { background: #405c3d; transform: translateY(-2px); }
-.journey-card { position: absolute; z-index: 2; right: 6%; top: 51%; transform: translateY(-20%); width: min(365px, 32%); padding: 23px 22px 19px; border: 1px solid rgba(255,255,255,.8); border-radius: 17px; background: rgba(255,254,250,.97); box-shadow: 0 18px 55px rgba(24,36,25,.18); color: #1d281f; }
-.card-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 17px; }
-.card-kicker { color: #7c8979; font-size: 8px; letter-spacing: .15em; font-weight: 700; }
-.card-heading h2 { margin: 7px 0 0; font: 700 19px/1.2 'Manrope', sans-serif; letter-spacing: -.045em; }
-.card-icon { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 50%; background: #edf2e7; color: #557447; }
-.mode-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 7px; background: #f0f1ed; margin-bottom: 17px; }
-.mode-switch button { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; padding: 0 5px; border: 0; border-radius: 5px; background: transparent; color: #70796e; font: 600 10px 'DM Sans', sans-serif; cursor: pointer; transition: background .2s ease, color .2s ease; }
-.mode-switch button.selected { background: #c7dda9; color: #263823; box-shadow: 0 2px 6px rgba(34,55,29,.08); }
-.field { display: block; min-width: 0; margin-bottom: 11px; }
-.field > span { display: block; margin: 0 0 6px 2px; color: #7b8478; font-size: 8px; font-weight: 700; letter-spacing: .11em; }
-.field > div { display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 11px; border: 1px solid transparent; border-radius: 5px; background: #f0f1ee; color: #84907f; transition: border-color .2s ease, background .2s ease; }
-.field > div:focus-within { border-color: #a8bd91; background: #fff; }
-.field input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: #263126; font: 500 10px 'DM Sans', sans-serif; }
-.field input::placeholder { color: #929a90; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-.card-submit { width: 100%; min-height: 45px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border: 0; border-radius: 5px; background: #1d2b20; color: white; font: 600 10px 'DM Sans', sans-serif; cursor: pointer; transition: background .2s ease, transform .2s ease; }
-.card-submit:hover { background: #34583a; transform: translateY(-2px); }
-.card-note { margin: 11px 0 0; color: #899184; font-size: 8px; text-align: center; }
 .below-fold { max-width: 1800px; margin: 100px auto 0; padding: 0 6%; }
 .below-fold > span { color: #82907c; font-size: 10px; letter-spacing: .16em; font-weight: 700; }
 .below-fold p { margin: 24px 0; font: 500 clamp(34px, 5vw, 68px)/1.08 'Manrope', sans-serif; letter-spacing: -.06em; }
@@ -66,7 +48,6 @@ button, input { font: inherit; }
   .menu-button { display: block; }
   .hero-photo { height: auto; min-height: 930px; border-radius: 16px; }
   .hero-image { background-position: 53% center; }
-  .hero-image::after { background-size: auto 40%; background-position: 34% 78%; opacity: .9; }
   .hero-wash { background: linear-gradient(180deg, rgba(248,249,245,.76), rgba(248,249,245,.48) 35%, rgba(248,249,245,.04) 62%, rgba(13,25,17,.34)); }
   .hero-topline, .hero-bottomline { left: 17px; right: 17px; font-size: 7px; letter-spacing: .1em; }
   .hero-topline { top: 17px; }
@@ -76,8 +57,6 @@ button, input { font: inherit; }
   .hero-copy h1 { font-size: clamp(43px, 11.5vw, 62px); line-height: 1; }
   .hero-description { font-size: 12px; line-height: 1.6; }
   .desktop-break { display: none; }
-  .journey-card { left: 5%; right: 5%; top: auto; bottom: 8%; width: auto; transform: none; padding: 19px 17px 16px; }
-  .card-heading h2 { font-size: 18px; }
   .below-fold { margin-top: 70px; padding: 0 4%; }
 }
 @media (max-width: 390px) { .hero-photo { min-height: 960px; } .hero-copy h1 { font-size: 43px; } .field-row { gap: 6px; } .field > div { padding: 0 8px; } .field input { font-size: 9px; } .mode-switch button { font-size: 9px; } }
