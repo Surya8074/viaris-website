@@ -21,7 +21,7 @@ button, input { font: inherit; }
 .menu-button { display: none; border: 0; background: transparent; color: #1c241d; }
 .hero { max-width: 1800px; margin: 0 auto; }
 .hero-photo { position: relative; height: min(760px, calc(100svh - 112px)); min-height: 650px; max-height: 820px; overflow: hidden; isolation: isolate; border-radius: 25px; background: #d8e0d0; }
-.hero-image { position: absolute; z-index: 0; inset: 0; background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=90'); background-size: cover; background-position: center 55%; transform: scale(1.015); }
+.hero-image { position: absolute; z-index: 0; inset: 0; background-image: url('/viaris-website/images/Lakeview%20Residency%20Commute.png'); background-size: cover; background-position: center 55%; transform: scale(1.015); }
 .hero-wash { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(248,249,245,.68) 0%, rgba(248,249,245,.4) 27%, rgba(248,249,245,.03) 52%, rgba(13,25,17,.2) 100%); }
 .hero-topline, .hero-bottomline { position: absolute; left: 36px; right: 36px; display: flex; justify-content: space-between; align-items: center; color: rgba(28,36,29,.72); font-size: 9px; letter-spacing: .16em; font-weight: 700; }
 .hero-topline { top: 25px; }
