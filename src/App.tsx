@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Menu, MapPin, CalendarDays, Clock3, CarFront, Users, Navigation } from 'lucide-react';
+import { ArrowUpRight, Menu, MapPin, CalendarDays, Clock3, Users, Navigation } from 'lucide-react';
 
 type RideMode = 'find' | 'publish';
 
