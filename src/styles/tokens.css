@@ -1,0 +1,17 @@
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #1d241e;
+  background: #f8f8f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --paper: #f8f8f2;
+  --paper-soft: #eff1e8;
+  --ink: #1d241e;
+  --muted: #6c756b;
+  --green: #285b3a;
+  --green-deep: #173c29;
+  --lime: #a4c779;
+  --display: 'Manrope', sans-serif;
+  --gutter: clamp(24px, 6vw, 96px);
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
