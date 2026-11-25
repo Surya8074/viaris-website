@@ -54,7 +54,6 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="vr-footer__landscape" aria-hidden="true" />
 
       <div className="vr-footer__bottom">
         <span className="vr-footer__copyright">© {new Date().getFullYear()} Viaris Ride. All rights reserved.</span>
