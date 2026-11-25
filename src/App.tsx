@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import './styles/benefits-landscape.css';
 import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
 import ImpactCalculator from './components/ImpactCalculator';
