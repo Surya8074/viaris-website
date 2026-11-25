@@ -13,7 +13,7 @@ const FEATURES = [
     description: 'Share the road between cities. Find a seat, split the fuel and make the distance feel shorter.',
     image: '/viaris-website/assets/intercity-scene.svg',
     icon: Route,
-    path: 'M410 54 C390 76 340 82 300 88 C220 100 174 94 136 126 C112 146 104 190 136 236'
+    path: 'M520 30 C486 54 420 60 350 66 C260 74 205 82 176 116 C158 138 153 184 150 236'
   },
   {
     id: 'daily-commute',
@@ -21,7 +21,7 @@ const FEATURES = [
     description: 'Find people heading your way to work, college or business — once, or on the same weekdays.',
     image: '/viaris-website/assets/commute-scene.svg',
     icon: CalendarDays,
-    path: 'M410 54 C410 104 410 174 410 236'
+    path: 'M520 30 C520 82 520 156 520 236'
   },
   {
     id: 'communities',
@@ -29,7 +29,7 @@ const FEATURES = [
     description: 'Connect with people around the places you share — your neighbourhood, gym, park or school.',
     image: '/viaris-website/assets/communities-scene.svg',
     icon: Users,
-    path: 'M410 54 C430 76 480 82 520 88 C600 100 646 94 684 126 C708 146 716 190 684 236'
+    path: 'M520 30 C554 54 620 60 690 66 C780 74 835 82 864 116 C882 138 887 184 890 236'
   }
 ];
 
@@ -45,7 +45,7 @@ function BranchCar({ id, delay }: { id: string; delay: number }) {
 }
 
 function RouteBranches() {
-  return <svg className="vf-routes" viewBox="0 0 820 236" preserveAspectRatio="none" aria-hidden="true">
+  return <svg className="vf-routes" viewBox="0 0 1040 236" preserveAspectRatio="none" aria-hidden="true">
     <defs>
       <linearGradient id="vf-route-tone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#9bbd78"/><stop offset="1" stopColor="#6c9b53"/></linearGradient>
     </defs>

@@ -57,7 +57,7 @@
 .vf-features{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  column-gap:clamp(28px,5.5vw,76px);
+  column-gap:22px;
   align-items:start;
 }
 .vf-feature{
