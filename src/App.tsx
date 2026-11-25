@@ -3,7 +3,6 @@ import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
 import ImpactCalculator from './components/ImpactCalculator';
 import BenefitsSection from './components/BenefitsSection';
-import ViarisJourneyViewer from './components/ViarisJourneyViewer';
 import CommunityExchangeSection from './components/CommunityExchangeSection';
 import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2, Wallet, Fuel } from 'lucide-react';
 
@@ -175,7 +174,6 @@ export default function App() {
         <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
       </section>
       <ViarisFeatureSection />
-      <ViarisJourneyViewer />
       <BenefitsSection />
       <ImpactCalculator />
       <CommunityExchangeSection />
