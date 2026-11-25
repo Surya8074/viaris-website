@@ -36,7 +36,7 @@ export default function App() {
       return t * t * (3 - 2 * t);
     };
 
-    const placeVehicle = (vehicle: SVGGElement, progress: number, lateralPixels = 0) => {
+    const placeVehicle = (vehicle: SVGElement, progress: number, lateralPixels = 0) => {
       if (!road || !pathLength) return;
       const svg = road.ownerSVGElement;
       if (!svg) return;
