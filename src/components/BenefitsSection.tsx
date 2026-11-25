@@ -107,13 +107,7 @@ export default function BenefitsSection() {
             <div className="vb-proof-item"><ProofIcon type="planet" /><span>Fewer emissions<br />per shared trip</span></div>
             <div className="vb-proof-item"><ProofIcon type="people" /><span>Stronger local<br />connections</span></div>
           </div>
-          <img
-            className="vb-community-art"
-            src="/viaris-website/images/footer-community-illustration.png"
-            alt="Illustration of a green residential neighbourhood"
-            loading="lazy"
-            decoding="async"
-          />
+          <CommunityIllustration />
         </aside>
       </div>
     </section>
