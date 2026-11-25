@@ -7,18 +7,14 @@ export default function HeroIntroReveal() {
 
   useLayoutEffect(() => {
     const overlay = root.current;
-    if (!overlay) return;
-
-    const page = overlay.closest(".viaris-home") as HTMLElement | null;
-    const lines = overlay.querySelectorAll<HTMLElement>(".mfa-hero-intro-line");
-
-    // Never leave the page covered if the expected elements are unavailable.
-    if (!page || lines.length < 2) {
-      overlay.remove();
+    const page = document.querySelector<HTMLElement>(".viaris-home");
+    if (!overlay || !page) {
+      overlay?.remove();
       return;
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const lines = overlay.querySelectorAll<HTMLElement>(".mfa-hero-intro-line");
+    if (lines.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       gsap.set(page, { clearProps: "clipPath,willChange" });
       overlay.remove();
       return;

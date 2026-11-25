@@ -107,7 +107,9 @@ export default function App() {
   }, []);
 
   return (
-    <main className="viaris-home">
+    <>
+      <HeroIntroReveal />
+      <main className="viaris-home">
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Viaris home">viaris<span>.</span></a>
         <nav className="main-nav" aria-label="Main navigation">
@@ -122,7 +124,6 @@ export default function App() {
         </div>
       </header>
 
-      <HeroIntroReveal />
       <section className="hero" id="home">
         <div className="hero-photo">
           <div className="hero-image" role="img" aria-label="A modern car travelling through a green countryside landscape" />
@@ -175,6 +176,7 @@ export default function App() {
       <ImpactCalculator />
       <CommunityExchangeSection />
       <div id="how-it-works" /><div id="get-app" />
-    </main>
+      </main>
+    </>
   );
 }
