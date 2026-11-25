@@ -9,7 +9,7 @@ const benefits = [
 
 function BenefitCard({item}:{item:typeof benefits[number]}) {
   return <article className="vb-card">
-    <img className="vb-card-icon" src={`/viaris-website/images/benefits/${item.image}`} alt={item.alt} loading="lazy"/>
+    <img className="vb-card-icon" src={`/viaris-website/images/${item.image}`} alt={item.alt} loading="lazy"/>
     <h3>{item.title}</h3>
     <p>{item.copy}</p>
   </article>;
@@ -32,7 +32,7 @@ export default function BenefitsSection() {
         <div className="vb-proof-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M32 6C16 6 7 13 8 25c1 6 6 9 12 7C30 28 32 17 32 6Z M9 32 25 15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Less<br/>emissions</span></div>
         <div className="vb-proof-item"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="10" r="4" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="8" cy="16" r="3.5" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="32" cy="16" r="3.5" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M12 31v-5c0-5 3-8 8-8s8 3 8 8v5ZM2 31v-4c0-4 2-7 6-7 2 0 3 .5 4 2m26 9v-4c0-4-2-7-6-7-2 0-3 .5-4 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg><span>Stronger<br/>neighbourhoods</span></div>
       </div>
-      <img className="vb-community-art" src="/viaris-website/images/benefits/footer-community-illustration.png" alt="Illustration of a green residential neighbourhood" loading="lazy"/>
+      <img className="vb-community-art" src="/viaris-website/images/footer-community-illustration.png" alt="Illustration of a green residential neighbourhood" loading="lazy"/>
     </div>
   </section>;
 }
