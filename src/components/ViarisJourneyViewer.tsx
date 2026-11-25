@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, CalendarDays, CarFront, MapPin, Route, Users } from 'lucide-react';
+import { CalendarDays, CarFront, Route, Users } from 'lucide-react';
 import '../styles/viaris-journey-viewer.css';
 
 const journeys = [
