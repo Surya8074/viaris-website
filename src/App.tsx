@@ -177,9 +177,9 @@ export default function App() {
       </section>
       <ViarisFeatureSection />
       <section className="benefits-landscape" aria-label="A shared journey through the hills" />
+      <CommunityExchangeSection />
       <BenefitsSection />
       <ImpactCalculator />
-      <CommunityExchangeSection />
       <div id="how-it-works" /><div id="get-app" />
       </main>
       <Footer />
