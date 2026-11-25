@@ -13,7 +13,7 @@ const FEATURES = [
     description: 'Share the road between cities. Find a seat, split the fuel and make the distance feel shorter.',
     image: '/viaris-website/assets/intercity-scene.svg',
     icon: Route,
-    path: 'M410 54 C410 76 390 84 365 84 H188 C148 84 119 108 103 146 L75 218'
+    path: 'M410 54 C400 78 359 84 316 88 C238 96 160 88 116 127 C91 149 80 181 75 218'
   },
   {
     id: 'daily-commute',
@@ -29,7 +29,7 @@ const FEATURES = [
     description: 'Connect with people around the places you share — your neighbourhood, gym, park or school.',
     image: '/viaris-website/assets/communities-scene.svg',
     icon: Users,
-    path: 'M410 54 C410 76 430 84 455 84 H632 C672 84 701 108 717 146 L745 218'
+    path: 'M410 54 C420 78 461 84 504 88 C582 96 660 88 704 127 C729 149 740 181 745 218'
   }
 ];
 
@@ -52,7 +52,7 @@ function RouteBranches() {
     {FEATURES.map(feature => <path key={feature.id} id={`vf-path-${feature.id}`} d={feature.path} fill="none"/>)}
     {FEATURES.map((feature,index) => <g key={feature.id}>
       <path className="vf-route" d={feature.path}/>
-      <circle className="vf-route-end" cx={[59,410,761][index]} cy="218" r="3.4"/>
+      
       <BranchCar id={feature.id} delay={index * 1.4}/>
     </g>)}
     <circle className="vf-route-origin-ring" cx="410" cy="1" r="8"/>

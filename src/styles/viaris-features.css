@@ -49,8 +49,8 @@
   fill:none;stroke:#91a985;stroke-width:1.15;stroke-linecap:round;
   vector-effect:non-scaling-stroke;
 }
-.vf-route-end{fill:#fffefa;stroke:#91a985;stroke-width:1.15;vector-effect:non-scaling-stroke}
-.vf-route-junction{fill:#fffefa;stroke:#718f67;stroke-width:1.2;vector-effect:non-scaling-stroke}
+
+.vf-route-junction{fill:#718f67;stroke:#fffefa;stroke-width:1;vector-effect:non-scaling-stroke}
 .vf-route-origin-ring{fill:#fffefa;stroke:#91a985;stroke-width:1.05;vector-effect:non-scaling-stroke}
 .vf-route-origin{fill:#718f67;stroke:#fffefa;stroke-width:.7;vector-effect:non-scaling-stroke}
 .vf-car{opacity:.92}
