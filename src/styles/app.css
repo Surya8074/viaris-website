@@ -61,3 +61,57 @@ button, input { font: inherit; }
 }
 @media (max-width: 390px) { .hero-photo { min-height: 960px; } .hero-copy h1 { font-size: 43px; } .field-row { gap: 6px; } .field > div { padding: 0 8px; } .field input { font-size: 9px; } .mode-switch button { font-size: 9px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
+
+
+/* Section 02 — everyday commute story */
+.commute-story { max-width: 1800px; margin: 0 auto; overflow: clip; }
+.commute-intro { min-height: 760px; padding: 126px clamp(24px,7vw,112px) 112px; display: grid; grid-template-columns: .86fr 1.14fr; align-items: center; gap: clamp(40px,7vw,110px); background: #f2f1e9; }
+.commute-copy { max-width: 510px; }
+.story-index, .story-overline, .turn-kicker { display: block; font-size: 9px; font-weight: 700; letter-spacing: .17em; }
+.story-index { color: #77846e; margin-bottom: 74px; }
+.story-overline { color: #718166; margin: 0 0 20px; }
+.commute-copy h2, .turn-copy h2 { margin: 0; font: 700 clamp(46px,5.2vw,76px)/1.02 'Manrope',sans-serif; letter-spacing: -.075em; color: #20291f; }
+.commute-copy h2 em, .turn-copy h2 em { color: #76945c; font-style: normal; }
+.story-lede { max-width: 390px; margin: 25px 0 0; color: #687064; font-size: 15px; line-height: 1.85; }
+.commute-map { position: relative; min-height: 470px; padding: 24px 26px; border: 1px solid #dce0d4; border-radius: 5px; background: #e9ebdf; overflow: hidden; }
+.map-heading, .map-foot { display: flex; justify-content: space-between; color: #7d8974; font-size: 8px; letter-spacing: .13em; font-weight: 700; }
+.map-origin { position: absolute; top: 83px; left: 7%; display: flex; align-items: center; gap: 8px; color: #34452f; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.origin-pulse { width: 8px; height: 8px; border-radius: 50%; background: #86a76a; box-shadow: 0 0 0 6px rgba(134,167,106,.17); }
+.route-art { position: absolute; inset: 100px 2% 55px; width: 96%; height: calc(100% - 155px); overflow: visible; }
+.route { fill: none; stroke: #8da17c; stroke-width: 1.8; stroke-dasharray: 7 8; opacity: .75; }
+.route-one, .route-two, .route-three { stroke-dasharray: 500; stroke-dashoffset: 500; }
+.is-visible .route-one { animation: draw-route 1.5s .2s ease forwards; }
+.is-visible .route-two { animation: draw-route 1.5s .55s ease forwards; }
+.is-visible .route-three { animation: draw-route 1.5s .9s ease forwards; }
+@keyframes draw-route { to { stroke-dashoffset: 0; } }
+.route-dot { fill: #78945f; opacity: 0; }
+.is-visible .route-dot { animation: dot-in .4s 1.6s ease forwards; }
+@keyframes dot-in { to { opacity: 1; } }
+.solo-car { position: absolute; display: flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid #d6ddcc; background: rgba(255,254,250,.88); color: #7a8474; font-size: 7px; letter-spacing: .1em; font-weight: 700; }
+.car-symbol { color: #5f7b4e; font-size: 17px; }
+.car-one { top: 34%; left: 39%; }.car-two { top: 51%; left: 44%; }.car-three { top: 68%; left: 47%; }
+.map-destination { position: absolute; right: 6%; top: 47%; display: flex; align-items: center; gap: 7px; color: #53664b; font-size: 8px; letter-spacing: .1em; font-weight: 700; writing-mode: vertical-rl; }
+.destination-dot { width: 7px; height: 7px; border-radius: 50%; background: #536f46; }
+.map-foot { position: absolute; bottom: 22px; left: 26px; right: 26px; }
+.commute-turn { min-height: 760px; padding: 120px clamp(24px,7vw,112px); display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px,8vw,130px); align-items: center; background: #1e2b21; color: #fff; }
+.turn-copy { max-width: 520px; }
+.turn-kicker { color: #bfd49f; margin-bottom: 28px; }
+.turn-copy h2 { color: #fff; font-size: clamp(45px,5vw,72px); }
+.turn-copy h2 em { color: #b8df86; }
+.turn-copy > p { max-width: 390px; margin: 25px 0 0; color: #d2dbcf; font-size: 15px; line-height: 1.8; }
+.turn-benefits { display: grid; gap: 16px; margin-top: 38px; }
+.turn-benefits span { display: flex; align-items: center; gap: 12px; color: #e8eee3; font-size: 12px; }
+.turn-benefits svg { color: #b8df86; }
+.shared-journey { max-width: 650px; width: 100%; justify-self: end; }
+.shared-photo { min-height: 410px; border-radius: 4px; background-image: linear-gradient(180deg,rgba(12,22,14,.02),rgba(12,22,14,.18)),url('/viaris-website/images/Lakeview%20Residency%20Commute.png'); background-size: cover; background-position: center 60%; }
+.shared-route { display: flex; align-items: center; gap: 12px; margin: 24px 0 20px; color: #c8dda9; }
+.shared-route-line { flex: 1; height: 1px; background: linear-gradient(90deg,#b9d992,#6e8e58); }
+.shared-route-point, .shared-route-end { display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid #91ae72; border-radius: 50%; }
+.shared-route-label { font-size: 8px; letter-spacing: .14em; font-weight: 700; }
+.shared-caption span { display: block; margin-bottom: 7px; color: #b7c9a8; font-size: 8px; letter-spacing: .16em; font-weight: 700; }
+.shared-caption strong { color: #fff; font: 600 clamp(24px,3vw,38px)/1.2 'Manrope',sans-serif; letter-spacing: -.045em; }
+[data-reveal] { opacity: 0; transform: translateY(34px); transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.2,1); }
+[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 900px) { .commute-intro,.commute-turn { grid-template-columns: 1fr; padding: 88px 7vw; gap: 48px; } .story-index { margin-bottom: 48px; }.commute-map { min-height: 420px; }.shared-journey { justify-self: stretch; max-width: none; } }
+@media (max-width: 600px) { .commute-intro,.commute-turn { padding: 72px 22px; gap: 38px; min-height: auto; } .commute-copy h2,.turn-copy h2 { font-size: clamp(42px,12vw,58px); } .story-index { margin-bottom: 42px; } .story-lede,.turn-copy > p { font-size: 13px; } .commute-map { min-height: 350px; padding: 18px; } .map-origin { top: 72px; left: 6%; font-size: 7px; } .route-art { top: 90px; height: calc(100% - 140px); } .solo-car { padding: 5px 7px; font-size: 6px; } .car-one { top: 34%; left: 34%; }.car-two { top: 51%; left: 39%; }.car-three { top: 68%; left: 42%; } .map-destination { right: 4%; font-size: 6px; } .map-foot { left: 18px; right: 18px; bottom: 17px; font-size: 7px; } .shared-photo { min-height: 280px; background-position: center; } .turn-benefits { gap: 14px; margin-top: 28px; } }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } .route-one,.route-two,.route-three { stroke-dashoffset: 0; animation: none !important; } .route-dot { opacity: 1; animation: none !important; } }
