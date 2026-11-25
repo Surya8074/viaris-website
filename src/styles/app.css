@@ -452,3 +452,11 @@ button, input { font: inherit; }
 @media(min-width:901px){.story-sequence > svg.story-road{transform:translateX(-112px)!important}}
 @media(max-width:900px) and (min-width:601px){.story-sequence > svg.story-road{transform:translateX(-54px)!important}}
 @media(max-width:600px){.story-sequence > svg.story-road{transform:translateX(0)!important}}
+
+
+/* Keep the community chapter copy in front of the illustrated road. */
+.story-sequence .story-chapter .chapter-copy{position:relative!important;z-index:20!important;isolation:isolate!important;background:#fffefa!important}
+.story-sequence .story-chapter .chapter-copy h3,
+.story-sequence .story-chapter .chapter-copy p,
+.story-sequence .story-chapter .chapter-copy .story-tags{position:relative;z-index:21}
+.story-sequence > svg.story-road{z-index:0!important}
