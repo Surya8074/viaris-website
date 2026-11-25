@@ -40,7 +40,7 @@ function BranchCar({ id, delay }: { id: string; delay: number }) {
       <path d="m5 2.8-1.5 3h10l-1.8-3Z" fill="#dce8d5"/>
       <circle cx="5.5" cy="11" r="1.4" fill="#315b42"/><circle cx="14.5" cy="11" r="1.4" fill="#315b42"/>
     </g>
-    <animateMotion dur="10s" repeatCount="indefinite" begin={`${delay}s`} rotate="auto"><mpath href={`#vf-path-${id}`}/></animateMotion>
+    <animateMotion dur="10s" repeatCount="indefinite" begin={`${delay}s`} rotate="0"><mpath href={`#vf-path-${id}`}/></animateMotion>
   </g>;
 }
 
