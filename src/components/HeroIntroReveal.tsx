@@ -7,25 +7,32 @@ export default function HeroIntroReveal() {
 
   useLayoutEffect(() => {
     const overlay = root.current;
-    const page = overlay?.closest(".viaris-home") as HTMLElement | null;
-    if (!overlay || !page) return;
+    if (!overlay) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const page = overlay.closest(".viaris-home") as HTMLElement | null;
+    const lines = overlay.querySelectorAll<HTMLElement>(".mfa-hero-intro-line");
+
+    // Never leave the page covered if the expected elements are unavailable.
+    if (!page || lines.length < 2) {
       overlay.remove();
       return;
     }
 
-    const ctx = gsap.context(() => {
-      const left = overlay.querySelector<HTMLElement>(".mfa-intro-left");
-      const right = overlay.querySelector<HTMLElement>(".mfa-intro-right");
-      if (!left || !right) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set(page, { clearProps: "clipPath,willChange" });
+      overlay.remove();
+      return;
+    }
 
-      const distance = () => Math.max(window.innerWidth, window.innerHeight) * 0.72;
+    const [firstLine, secondLine] = Array.from(lines);
+    const distance = () => Math.max(window.innerWidth, window.innerHeight) * 0.72;
+
+    const ctx = gsap.context(() => {
       gsap.set(page, {
         clipPath: "inset(49% 49% 49% 49% round 18px)",
         willChange: "clip-path",
       });
-      gsap.set([left, right], { autoAlpha: 0, y: 22 });
+      gsap.set(lines, { autoAlpha: 0, y: 22 });
 
       const timeline = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -36,9 +43,9 @@ export default function HeroIntroReveal() {
       });
 
       timeline
-        .to([left, right], { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.1 }, 0.25)
-        .to(left, { x: () => -distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
-        .to(right, { x: () => distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
+        .to(lines, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.1 }, 0.25)
+        .to(firstLine, { x: () => -distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
+        .to(secondLine, { x: () => distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
         .to(page, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.45, ease: "expo.inOut" }, 2.35)
         .to(overlay, { autoAlpha: 0, duration: 0.95, ease: "power2.inOut" }, 2.35);
     }, overlay);
