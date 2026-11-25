@@ -336,3 +336,16 @@ button, input { font: inherit; }
  .story-sequence .chapter-community .chapter-visual,.story-sequence .chapter-connection .chapter-visual,.story-sequence .chapter-separate .chapter-visual,.story-sequence .story-final .chapter-visual{order:1}
  .story-sequence .story-road{left:2px;width:34px;opacity:.42}
 }
+
+/* Layered route: the road slips behind each image and reappears between chapters */
+.story-sequence{position:relative;isolation:isolate}
+.story-sequence .story-road{z-index:1;left:calc(50% - 30px);width:60px;overflow:visible}
+.story-sequence .story-chapter{z-index:auto;position:relative}
+.story-sequence .chapter-visual{position:relative;z-index:2;background:#e9ece4;overflow:hidden;box-shadow:0 22px 56px rgba(24,38,27,.10),0 3px 10px rgba(24,38,27,.045)}
+.story-sequence .chapter-copy{position:relative;z-index:3;background:#fffefa}
+.story-sequence .chapter-visual:before{content:"";position:absolute;inset:0;z-index:1;border:1px solid rgba(42,57,43,.11);border-radius:inherit;pointer-events:none}
+.story-sequence .chapter-visual:after{z-index:2}
+.story-sequence .story-photo{z-index:0}
+.story-sequence .visual-caption{z-index:3}
+@media(max-width:900px) and (min-width:601px){.story-sequence .story-road{left:calc(50% - 24px);width:48px}}
+@media(max-width:600px){.story-sequence .story-road{left:2px;width:34px;opacity:.42}}
