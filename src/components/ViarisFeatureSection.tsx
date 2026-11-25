@@ -55,8 +55,9 @@ function RouteBranches() {
       
       <BranchCar id={feature.id} delay={index * 1.4}/>
     </g>)}
-    <circle className="vf-route-origin-ring" cx="410" cy="1" r="8"/>
-    <circle className="vf-route-origin" cx="410" cy="1" r="3.2"/>
+    <path className="vf-route-trunk" d="M520 1 V30"/>
+    <circle className="vf-route-origin-ring" cx="520" cy="1" r="8"/>
+    <circle className="vf-route-origin" cx="520" cy="1" r="3.2"/>
   </svg>;
 }
 
