@@ -1,23 +1,27 @@
 .ce-section {
   width: 100%;
-  max-width: 1672px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0;
   overflow: hidden;
   background: #fbfaf8;
+  line-height: 0;
 }
 
 .ce-reference-artwork {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
-  object-fit: contain;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: cover;
 }
 
 @media (max-width: 760px) {
   .ce-section {
-    overflow: visible;
+    overflow: hidden;
   }
   .ce-reference-artwork {
     width: 100%;
