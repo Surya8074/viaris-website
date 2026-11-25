@@ -145,9 +145,9 @@ export default function App() {
 
       <section className="community-story" id="experiences" aria-labelledby="community-story-title">
         <div className="story-masthead">
-          <div><span className="story-index">02 / THE EVERYDAY COMMUTE</span><p className="story-overline">A COMMUNITY IN MOTION</p><h2 id="community-story-title">A hundred people.<br/><em>One community.</em></h2></div>
+          <div><h2 id="community-story-title">A hundred people.<br/><em>One community.</em></h2></div>
           <p className="story-intro">Every morning, people from the same community head in the same direction — without knowing it.</p>
-          <div className="story-progress"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
+          
         </div>
         <div className="story-sequence">
           <svg className="story-road" viewBox="0 0 1600 2800" preserveAspectRatio="none" aria-hidden="true">
