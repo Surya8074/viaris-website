@@ -261,3 +261,39 @@ button, input { font: inherit; }
 @media(max-width:900px){.story-masthead{padding-top:88px}.story-masthead h2{font-size:clamp(50px,8vw,72px)}.story-chapter{min-height:560px;padding:58px 0;gap:36px}.chapter-copy h3{font-size:clamp(40px,5.6vw,58px)}.chapter-visual,.community-visual,.commute-visual,.connection-visual,.shared-visual{height:370px}.story-road{opacity:.9}}
 @media(max-width:600px){.story-masthead{padding:70px 22px 44px}.story-masthead h2{font-size:clamp(45px,11vw,60px);line-height:.98}.story-intro{font-size:13px}.story-sequence{padding:0 20px 30px 34px}.story-chapter,.story-chapter:nth-of-type(even){padding:44px 0;gap:20px}.chapter-copy{padding:0 0 0 10px}.chapter-copy h3{font-size:clamp(42px,10.5vw,54px)}.chapter-copy p{font-size:13px;line-height:1.75}.chapter-visual,.community-visual,.commute-visual,.connection-visual,.shared-visual{height:290px}.story-tags{gap:7px;margin-top:20px}.story-tags span{padding:8px 10px;font-size:9px}.route-facts span{font-size:9px;padding:8px 10px}.story-road{left:-5%;width:110%;opacity:.72}.road-surface{stroke-width:75}.road-edge{stroke-width:79}.road-center{stroke-width:2.5;stroke-dasharray:12 19}.road-motion-path{stroke-width:3.5}.shared-outcomes{gap:10px}.shared-outcomes span{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.road-motion-path{display:none}.road-vehicle,.road-vehicle-single{display:none}}
+
+/* Viaris signature commute route — refined production pass */
+.story-masthead{min-height:340px;padding:104px clamp(28px,8vw,128px) 66px;grid-template-columns:1.1fr .72fr;gap:8vw}
+.story-masthead h2{max-width:690px;font-size:clamp(48px,5.45vw,76px);line-height:.99;letter-spacing:-.078em}
+.story-intro{max-width:330px;font-size:15px;line-height:1.8}
+.story-chapter{min-height:630px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(72px,9vw,144px);padding:70px 0}
+.story-chapter:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.chapter-copy{max-width:420px;padding:22px 0}
+.chapter-number{font-size:8px;letter-spacing:.2em}
+.chapter-copy h3{font-size:clamp(42px,4.2vw,60px);line-height:1.02;letter-spacing:-.075em;margin-top:24px;max-width:10.5ch}
+.chapter-copy p{font-size:14px;line-height:1.8;max-width:330px;margin-top:19px}
+.chapter-visual{height:430px;overflow:hidden;isolation:isolate}
+.community-visual{height:450px;border-radius:4px 92px 4px 4px}
+.commute-visual{height:410px;border-radius:92px 4px 4px 4px}
+.connection-visual{height:430px;border-radius:4px 4px 92px 4px}
+.shared-visual{height:450px;border-radius:4px 92px 4px 4px}
+.story-photo{background-size:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .7s ease}
+.chapter-visual.is-visible .story-photo{transform:scale(1.035)}
+.community-photo{background-position:center 26%}.commute-photo{background-position:25% 66%}.connection-photo{background-position:78% 42%}.shared-photo-image{background-position:center 62%}
+.story-tags{gap:8px;margin-top:24px}
+.story-tags span,.route-facts span{padding:9px 12px;font-size:9px;border-color:#e6e9e0;background:rgba(250,251,247,.88)}
+.route-facts{gap:8px;margin-top:24px}.shared-outcomes{gap:11px;margin-top:25px}.shared-outcomes span{font-size:11px}
+.story-road{position:absolute;z-index:1;left:calc(50% - 34px);top:0;width:68px;height:100%;overflow:visible;pointer-events:none;opacity:.98}
+.road-shadow{fill:none;stroke:#1c2821;stroke-width:64;stroke-linecap:round;stroke-linejoin:round;opacity:.13;filter:url(#roadShadow);transform:translate(1px,5px)}
+.road-shoulder{fill:none;stroke:url(#roadShoulder);stroke-width:58;stroke-linecap:round;stroke-linejoin:round}
+.road-asphalt{fill:none;stroke:url(#roadAsphalt);stroke-width:48;stroke-linecap:round;stroke-linejoin:round}
+.road-edge-line{fill:none;stroke:#d5d4c4;stroke-width:1.1;opacity:.8}
+.road-center{fill:none;stroke:#e9e4d1;stroke-width:1.8;stroke-linecap:round;stroke-dasharray:12 14;opacity:.9}
+.road-motion-path{fill:none;stroke:#b7e887;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:2 18;filter:drop-shadow(0 0 3px rgba(183,232,135,.6));opacity:.8}
+.road-vehicle,.road-vehicle-single{opacity:0;filter:drop-shadow(0 4px 4px rgba(9,17,12,.38));transition:opacity .35s ease}
+.story-sequence{isolation:isolate}.story-chapter{z-index:2}.story-chapter .chapter-copy,.story-chapter .chapter-visual{position:relative;z-index:2}.story-chapter .chapter-copy{background:#fffefa}
+.story-ending{position:relative;z-index:3;background:#fffefa;padding-top:40px}
+.story-route,.route-convoy{display:none!important}
+@media(max-width:900px){.story-masthead{padding:82px 7vw 48px;min-height:0}.story-masthead h2{font-size:clamp(46px,7vw,64px)}.story-chapter,.story-chapter:nth-of-type(even){min-height:520px;gap:64px;padding:54px 0}.chapter-copy h3{font-size:clamp(38px,4.8vw,52px)}.chapter-visual,.community-visual,.commute-visual,.connection-visual,.shared-visual{height:350px}.story-road{left:calc(50% - 26px);width:52px;opacity:.8}.road-shoulder{stroke-width:48}.road-asphalt{stroke-width:40}}
+@media(max-width:600px){.story-masthead{padding:68px 22px 40px}.story-masthead h2{font-size:clamp(42px,10.5vw,54px)}.story-intro{font-size:13px}.story-sequence{padding:0 20px 28px 34px}.story-chapter,.story-chapter:nth-of-type(even){display:flex;flex-direction:column;align-items:stretch;gap:20px;padding:40px 0;min-height:0}.chapter-copy{order:0!important;padding:0 0 0 10px;max-width:100%}.chapter-visual{order:1!important;width:100%;height:280px}.chapter-copy h3{font-size:clamp(38px,9.5vw,48px);max-width:12ch;line-height:1.03}.chapter-copy p{font-size:13px;line-height:1.75}.community-visual,.commute-visual,.connection-visual,.shared-visual{height:280px;border-radius:4px 54px 4px 4px}.story-road{left:2px;width:34px;opacity:.48}.road-shoulder{stroke-width:34}.road-asphalt{stroke-width:28}.road-center{stroke-width:1.3;stroke-dasharray:8 10}.road-motion-path{stroke-width:1.8}.story-tags span,.route-facts span{font-size:8px;padding:8px 9px}.story-ending{padding:20px 14px 60px}}
+@media(prefers-reduced-motion:reduce){.road-motion-path{display:none}.road-vehicle,.road-vehicle-single{display:none}}
