@@ -26,34 +26,28 @@ function Neighbourhood() {
       </defs>
       <circle cx="520" cy="180" r="205" fill="#eef2e7" opacity=".6"/><circle cx="990" cy="190" r="250" fill="#f0f3e8" opacity=".55"/>
       <path d="M0 360Q180 320 350 355T700 350T1100 350V470H0Z" fill="#edf3e6"/>
-      <!-- residential buildings -->
       <g stroke="#8b9d7b" strokeWidth="2" fill="#f7f6e9">
         <path d="M75 320V140l75-35 85 35v180Z"/><path d="M235 320V170l55-25 62 25v150Z"/>
         <path d="M78 140h155M235 170h117" stroke="#d0a878" strokeWidth="5"/>
         <path d="M95 165h24v30H95zM142 165h24v30h-24zM190 165h24v30h-24zM95 215h24v30H95zM142 215h24v30h-24zM190 215h24v30h-24zM255 192h20v26h-20zM300 192h20v26h-20zM255 238h20v26h-20zM300 238h20v26h-20z" fill="#cfe4d9" stroke="#9eb9a4"/>
       </g>
-      <!-- school -->
       <g stroke="#a28d6e" strokeWidth="2.5" fill="#fffaf0">
         <path d="M560 315V220l85-60 86 60v95Z"/><path d="M545 220h202l-101-70Z" fill="#e7c99e"/><path d="M625 315v-65h42v65" fill="#d6e5d7"/>
         <circle cx="645" cy="218" r="15" fill="#fff" stroke="#b7a17e"/><path d="M645 207v11l8 4" fill="none"/>
         <path d="M585 242h23v24h-23zM682 242h23v24h-23z" fill="#cfe4e7" stroke="#a6bcb2"/>
       </g>
-      <!-- workplace -->
       <g stroke="#9ab5ad" strokeWidth="2" fill="url(#ce-glass)">
         <path d="M840 315V165l76-32 78 32v150Z"/><path d="M930 315V115l58-24 62 24v200Z"/>
         <path d="M855 184h45v30h-45zM855 230h45v30h-45zM855 276h45v24h-45zM947 135h31v28h-31zM990 135h42v28h-42zM947 180h31v28h-31zM990 180h42v28h-42zM947 225h31v28h-31zM990 225h42v28h-42zM947 270h31v30h-31zM990 270h42v30h-42z" fill="#e5f2ef" stroke="#b2c9c0"/>
       </g>
-      <!-- landscaped trees -->
       <g fill="#7fae42" stroke="#719e42" strokeWidth="2">
         <path d="M35 326v-65M17 276q18-64 37 0q-18 28-37 0ZM200 330v-60M178 281q22-65 44 0q-22 27-44 0ZM390 335v-64M368 286q22-63 44 0q-22 28-44 0ZM760 330v-64M738 282q22-63 44 0q-22 28-44 0ZM1080 330v-70M1056 282q24-66 48 0q-24 28-48 0Z"/>
       </g>
       <g fill="#9fca65"><circle cx="32" cy="253" r="29"/><circle cx="195" cy="254" r="30"/><circle cx="390" cy="259" r="28"/><circle cx="760" cy="258" r="30"/><circle cx="1080" cy="252" r="32"/></g>
-      <!-- road -->
       <path d="M-30 430C150 370 260 390 395 365S650 330 790 365S1000 395 1130 345" fill="none" stroke="#fff" strokeWidth="75" strokeLinecap="round"/>
       <path d="M-30 430C150 370 260 390 395 365S650 330 790 365S1000 395 1130 345" fill="none" stroke="url(#ce-road)" strokeWidth="58" strokeLinecap="round"/>
       <path d="M-30 430C150 370 260 390 395 365S650 330 790 365S1000 395 1130 345" fill="none" stroke="#79c900" strokeWidth="3" strokeLinecap="round"/>
       <path d="M250 394C420 362 550 350 685 350" fill="none" stroke="#79c900" strokeWidth="4" strokeLinecap="round"/>
-      <!-- car -->
       <g transform="translate(315 336)">
         <ellipse cx="0" cy="39" rx="66" ry="9" fill="#647b64" opacity=".16"/>
         <path d="M-58 21l15-30q6-12 21-12h48q13 0 22 13l17 29v20h-123Z" fill="#fff" stroke="#294b3a" strokeWidth="3"/>
