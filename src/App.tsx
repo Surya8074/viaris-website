@@ -4,6 +4,7 @@ import ViarisFeatureSection from './components/ViarisFeatureSection';
 import ImpactCalculator from './components/ImpactCalculator';
 import BenefitsSection from './components/BenefitsSection';
 import CommunityExchangeSection from './components/CommunityExchangeSection';
+import Footer from './components/Footer';
 import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2, Wallet, Fuel } from 'lucide-react';
 
 export default function App() {
@@ -179,6 +180,7 @@ export default function App() {
       <CommunityExchangeSection />
       <div id="how-it-works" /><div id="get-app" />
       </main>
+      <Footer />
     </>
   );
 }
