@@ -460,3 +460,13 @@ button, input { font: inherit; }
 .story-sequence .story-chapter .chapter-copy p,
 .story-sequence .story-chapter .chapter-copy .story-tags{position:relative;z-index:21}
 .story-sequence > svg.story-road{z-index:0!important}
+
+
+/* Final community-story stacking: masthead always paints above the road SVG. */
+.community-story{position:relative!important;isolation:isolate!important}
+.community-story > .story-masthead{position:relative!important;z-index:10!important;background:#fffefa!important;isolation:isolate!important}
+.community-story > .story-sequence{position:relative!important;z-index:1!important;isolation:isolate!important}
+.community-story > .story-sequence > .story-road{position:absolute!important;z-index:0!important;left:0!important;top:0!important;transform:none!important;pointer-events:none!important}
+.community-story > .story-sequence > .story-chapter{position:relative!important;z-index:2!important;isolation:isolate!important}
+.community-story .story-chapter .chapter-copy{position:relative!important;z-index:4!important;background:#fffefa!important;isolation:isolate!important}
+.community-story .story-chapter .chapter-visual{position:relative!important;z-index:3!important;isolation:isolate!important}
