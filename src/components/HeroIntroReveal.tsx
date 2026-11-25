@@ -7,29 +7,25 @@ export default function HeroIntroReveal() {
 
   useLayoutEffect(() => {
     const overlay = root.current;
-    const page = document.querySelector<HTMLElement>(".viaris-home");
+    const page = overlay?.closest(".viaris-home") as HTMLElement | null;
     if (!overlay || !page) return;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion) {
-      gsap.set(page, { clearProps: "clipPath,willChange" });
-      overlay.remove();
-      return;
-    }
-
-    const firstLine = overlay.querySelector<HTMLElement>(".mfa-intro-line-one");
-    const secondLine = overlay.querySelector<HTMLElement>(".mfa-intro-line-two");
-    if (!firstLine || !secondLine) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       overlay.remove();
       return;
     }
 
     const ctx = gsap.context(() => {
+      const left = overlay.querySelector<HTMLElement>(".mfa-intro-left");
+      const right = overlay.querySelector<HTMLElement>(".mfa-intro-right");
+      if (!left || !right) return;
+
+      const distance = () => Math.max(window.innerWidth, window.innerHeight) * 0.72;
       gsap.set(page, {
-        clipPath: "inset(49% 49% 49% 49% round 16px)",
+        clipPath: "inset(49% 49% 49% 49% round 18px)",
         willChange: "clip-path",
       });
-      gsap.set([firstLine, secondLine], { autoAlpha: 0, y: 24 });
+      gsap.set([left, right], { autoAlpha: 0, y: 22 });
 
       const timeline = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -40,29 +36,11 @@ export default function HeroIntroReveal() {
       });
 
       timeline
-        .to([firstLine, secondLine], {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.85,
-          stagger: 0.12,
-        }, 0.25)
-        .to([firstLine, secondLine], {
-          autoAlpha: 0,
-          y: -18,
-          duration: 0.55,
-          stagger: 0.06,
-          ease: "power2.in",
-        }, 2.05)
-        .to(page, {
-          clipPath: "inset(0% 0% 0% 0% round 0px)",
-          duration: 1.55,
-          ease: "expo.inOut",
-        }, 2.45)
-        .to(overlay, {
-          autoAlpha: 0,
-          duration: 1.15,
-          ease: "power2.inOut",
-        }, 2.45);
+        .to([left, right], { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.1 }, 0.25)
+        .to(left, { x: () => -distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
+        .to(right, { x: () => distance(), autoAlpha: 0, duration: 1.15, ease: "expo.inOut" }, 1.55)
+        .to(page, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.45, ease: "expo.inOut" }, 2.35)
+        .to(overlay, { autoAlpha: 0, duration: 0.95, ease: "power2.inOut" }, 2.35);
     }, overlay);
 
     return () => ctx.revert();
@@ -70,8 +48,8 @@ export default function HeroIntroReveal() {
 
   return (
     <div className="mfa-hero-intro" ref={root} aria-hidden="true">
-      <span className="mfa-hero-intro-line mfa-intro-line-one">Someone&apos;s already</span>
-      <span className="mfa-hero-intro-line mfa-intro-line-two">going your way.</span>
+      <span className="mfa-hero-intro-line">Someone&apos;s already</span>
+      <span className="mfa-hero-intro-line mfa-intro-second">going your way.</span>
     </div>
   );
 }
