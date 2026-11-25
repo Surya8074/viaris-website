@@ -1,5 +1,4 @@
 import '../styles/benefits.css';
-import '../styles/benefits-landscape.css';
 
 const benefits = [
   {
