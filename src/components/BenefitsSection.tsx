@@ -87,7 +87,7 @@ export default function BenefitsSection() {
       <div className="vb-shell">
         <header className="vb-header">
           <div className="vb-eyebrow"><span aria-hidden="true">✳</span> THE VIARIS DIFFERENCE</div>
-          <h2 id="vb-title">Good things happen<br className="vb-title-break" /> when we <em>go together.</em></h2>
+          <h2 id="vb-title">Good things happen<br className="vb-title-break" /> when we go together.</h2>
           <span className="vb-underline" aria-hidden="true" />
           <p>Less spent on the road. A lighter impact on the planet. More connection along the way.</p>
         </header>
