@@ -11,9 +11,28 @@ export default function App() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.18 });
+    }, { threshold: 0.16 });
     items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+    const story = document.querySelector<HTMLElement>('.community-story');
+    const updateProgress = () => {
+      if (!story) return;
+      const rect = story.getBoundingClientRect();
+      const travel = Math.max(1, story.offsetHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, -rect.top / travel));
+      story.style.setProperty('--story-progress', String(progress));
+      const active = Math.min(3, Math.floor(progress * 4));
+      story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => {
+        chapter.classList.toggle('chapter-active', index === active);
+      });
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+    };
   }, []);
 
   return (
