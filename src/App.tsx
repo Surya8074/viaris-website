@@ -130,10 +130,10 @@ export default function App() {
         <div className="hero-photo">
           <div className="hero-image" role="img" aria-label="A modern car travelling through a green countryside landscape" />
           <div className="hero-wash" />
-          <div className="hero-topline"><span>MOVE TOGETHER</span><span>01 — A NEW WAY TO GO</span></div>
+          
 
           <div className="hero-copy">
-            <p className="eyebrow"><span /> THE JOURNEY IS BETTER SHARED</p>
+            
             <h1>Same roads.<br /><em>Different people.</em> One journey.</h1>
             <p className="hero-description">Find people going your way. Share everyday commutes,<br className="desktop-break" /> discover intercity rides, and make every journey count.</p>
             <a className="hero-cta" href="#experiences">Explore the Viaris way <ArrowUpRight size={16} /></a>
