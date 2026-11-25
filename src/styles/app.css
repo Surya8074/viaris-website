@@ -490,7 +490,5 @@ button, input { font: inherit; }
 .community-story .story-sequence>article.story-chapter>.chapter-copy{position:relative!important;z-index:3!important;background:#fffefa!important}
 
 
-/* Scroll-driven lead car: stays on the road centreline through the full story. */
-.story-sequence .road-emoji-car{font-size:48px;opacity:1;filter:drop-shadow(0 3px 4px rgba(12,24,15,.35));pointer-events:none}
-@media(max-width:600px){.story-sequence .road-emoji-car{font-size:34px}}
-@media(prefers-reduced-motion:reduce){.story-sequence .road-emoji-car{display:none}}
+/* Lead vehicle: detailed SVG car, sized for visibility and aligned nose-first to the road tangent. */
+.story-sequence .road-vehicle-single{transform-box:fill-box;transform-origin:center;filter:drop-shadow(0 5px 5px rgba(10,20,13,.42));}
