@@ -56,13 +56,13 @@
 .vb-proof{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.7vw,25px);min-width:0}
 .vb-proof-item{display:flex;align-items:center;gap:10px;color:#536459;font-size:12px;font-weight:550;line-height:1.4}
 .vb-proof-item svg{width:37px;height:37px;flex:0 0 37px;color:#32944a}
-.vb-community-art{position:relative;z-index:1;align-self:end;justify-self:end;width:100%;height:145px;object-fit:contain;object-position:right bottom;pointer-events:none}
+.vb-community-art{position:relative;z-index:1;align-self:end;justify-self:stretch;display:block;width:100%;max-width:100%;min-width:0;height:145px;object-fit:cover;object-position:100% 50%;pointer-events:none}
 @media(max-width:1120px){
   .vb-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   .vb-card{min-height:315px}
   .vb-card-visual{height:158px}
   .vb-banner{grid-template-columns:minmax(190px,.9fr) 1px minmax(300px,1.4fr);min-height:210px;padding-right:28px}
-  .vb-community-art{position:absolute;right:0;bottom:0;width:26%;height:100%;opacity:.17}
+  .vb-community-art{position:absolute;right:0;bottom:0;width:26%;height:100%;object-fit:cover;object-position:right center;opacity:.17}
 }
 @media(max-width:700px){
   .vb-section{padding:62px 18px 42px}
@@ -88,7 +88,7 @@
   .vb-proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
   .vb-proof-item{flex-direction:column;align-items:flex-start;gap:6px;font-size:10px;line-height:1.35}
   .vb-proof-item svg{width:27px;height:27px;flex-basis:27px}
-  .vb-community-art{position:absolute;right:0;bottom:0;width:100%;height:105px;opacity:1;object-fit:contain;object-position:right bottom}
+  .vb-community-art{position:absolute;right:0;bottom:0;width:100%;height:105px;opacity:1;object-fit:cover;object-position:right center}
 }
 @media(max-width:390px){
   .vb-grid{gap:9px}
