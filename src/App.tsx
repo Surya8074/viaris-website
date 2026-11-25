@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
+import ImpactCalculator from './components/ImpactCalculator';
 import CommunityExchangeSection from './components/CommunityExchangeSection';
 import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2, Wallet, Fuel } from 'lucide-react';
 
@@ -171,6 +172,7 @@ export default function App() {
         <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
       </section>
       <ViarisFeatureSection />
+      <ImpactCalculator />
       <CommunityExchangeSection />
       <div id="how-it-works" /><div id="get-app" />
     </main>
