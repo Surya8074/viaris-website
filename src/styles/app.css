@@ -435,3 +435,14 @@ button, input { font: inherit; }
 /* Keep the dark film behind hero copy so the text stays bright. */
 .hero-wash{z-index:1!important;background:rgba(0,0,0,.24)!important}
 .hero-copy,.hero-topline,.hero-bottomline{z-index:2!important;position:absolute}
+
+
+/* Final stacking correction: story photographs must fully cover the road wherever they overlap. */
+.story-sequence{position:relative!important;isolation:isolate!important}
+.story-sequence > svg.story-road{position:absolute!important;z-index:0!important;pointer-events:none!important}
+.story-sequence > article.story-chapter{position:relative!important;z-index:2!important;isolation:isolate!important}
+.story-sequence > article.story-chapter > .chapter-visual{position:relative!important;z-index:5!important;isolation:isolate!important;overflow:hidden!important;background:#fffefa!important;clip-path:inset(0 round 28px)}
+.story-sequence > article.story-chapter > .chapter-visual > .story-photo{position:absolute!important;inset:0!important;z-index:0!important}
+.story-sequence > article.story-chapter > .chapter-visual:before{z-index:1!important}
+.story-sequence > article.story-chapter > .chapter-visual:after{z-index:2!important}
+.story-sequence > article.story-chapter > .chapter-visual > .visual-caption{z-index:3!important}
