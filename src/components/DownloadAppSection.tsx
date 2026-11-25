@@ -15,7 +15,19 @@ export default function DownloadAppSection() {
         <span className="download-app__note">Viaris Ride · Go further, together.</span>
       </div>
       <div className="download-app__visual" aria-hidden="true">
-        <img src="/viaris-website/images/viaris-app-cta-visual.png" alt="" />
+        <div className="download-app__phone">
+          <div className="download-app__phone-top"><span>9:41</span><span>●●●</span></div>
+          <div className="download-app__map"><span className="download-app__map-pin pin-a">●</span><span className="download-app__map-pin pin-b">●</span><span className="download-app__route" /></div>
+          <div className="download-app__ride-card">
+            <span className="download-app__ride-kicker">YOUR COMMUNITY RIDE</span>
+            <b>Going your way?</b>
+            <div className="download-app__avatars"><i>R</i><i>A</i><i>M</i><small>+2</small></div>
+            <div className="download-app__ride-meta"><span>Today · 8:30 AM</span><span>3 seats</span></div>
+            <div className="download-app__ride-button">Find a shared ride <ArrowUpRight size={13}/></div>
+          </div>
+        </div>
+        <span className="download-app__float-icon float-car">♧</span>
+        <span className="download-app__float-icon float-people">◎</span>
       </div>
     </section>
   );
