@@ -146,7 +146,7 @@ button, input { font: inherit; }
 .story-photo{position:absolute;inset:0;background-size:cover;background-position:center}
 .community-photo{background-image:url('/viaris-website/images/1st.png');background-position:center 48%}
 .commute-visual{height:420px;border-radius:100px 2px 2px 2px}
-.commute-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:20% 60%}
+.commute-photo{background-image:url('/viaris-website/images/2nd.png');background-position:20% 60%}
 .connection-visual{height:490px;border-radius:2px 2px 100px 2px;background:#e8ecdf}
 .connection-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:70% 45%;filter:saturate(.82)}
 .visual-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;color:white;font-size:8px;letter-spacing:.15em;font-weight:700;text-shadow:0 1px 10px rgba(0,0,0,.45)}
@@ -201,7 +201,7 @@ button, input { font: inherit; }
 .chapter-visual.is-visible .story-photo{transform:scale(1.025)}
 .community-photo{background-image:url('/viaris-website/images/1st.png');background-position:center 10%}
 .commute-visual{height:390px;border-radius:110px 2px 2px 2px}
-.commute-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:18% 70%;filter:saturate(.85)}
+.commute-photo{background-image:url('/viaris-website/images/2nd.png');background-position:18% 70%;filter:saturate(.85)}
 .connection-visual{height:430px;border-radius:2px 2px 110px 2px}
 .connection-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:76% 38%;filter:saturate(.92)}
 .shared-visual{height:460px;border-radius:2px 110px 2px 2px}
