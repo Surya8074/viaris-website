@@ -384,3 +384,17 @@ button, input { font: inherit; }
 .story-sequence .chapter-copy{background:transparent!important;z-index:4;position:relative}
 .story-sequence .chapter-visual{position:relative;z-index:3}
 .story-sequence > .story-road{z-index:1!important;left:0!important;width:100%!important}
+
+
+/* Stable, frame-synchronised convoy motion */
+.story-sequence .road-vehicle,
+.story-sequence .road-vehicle-single {
+  transform-box: view-box;
+  transform-origin: center;
+  transition: opacity .28s ease;
+  will-change: transform, opacity;
+}
+@media(prefers-reduced-motion:reduce) {
+  .story-sequence .road-vehicle,
+  .story-sequence .road-vehicle-single { transition: none; }
+}

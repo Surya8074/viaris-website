@@ -13,52 +13,92 @@ export default function App() {
       });
     }, { threshold: 0.12 });
     items.forEach((item) => observer.observe(item));
+
     const story = document.querySelector<HTMLElement>('.community-story');
+    const sequence = story?.querySelector<HTMLElement>('.story-sequence');
+    const road = sequence?.querySelector<SVGPathElement>('.road-motion-path');
+    const vehicles = sequence?.querySelectorAll<SVGGElement>('.road-vehicle') ?? [];
+    const single = sequence?.querySelector<SVGGElement>('.road-vehicle-single');
+    const pathLength = road?.getTotalLength() ?? 0;
+    let frame = 0;
+
+    const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+    const smoothStep = (value: number) => {
+      const t = clamp(value, 0, 1);
+      return t * t * (3 - 2 * t);
+    };
+
+    const placeVehicle = (vehicle: SVGGElement, progress: number, lateralPixels = 0) => {
+      if (!road || !pathLength) return;
+      const svg = road.ownerSVGElement;
+      if (!svg) return;
+      const viewBox = svg.viewBox.baseVal;
+      const bounds = svg.getBoundingClientRect();
+      const scaleX = bounds.width / (viewBox.width || 1);
+      const scaleY = bounds.height / (viewBox.height || 1);
+      const distance = pathLength * clamp(progress, 0.015, 0.985);
+      const point = road.getPointAtLength(distance);
+      const before = road.getPointAtLength(Math.max(0, distance - 8));
+      const after = road.getPointAtLength(Math.min(pathLength, distance + 8));
+      const dx = (after.x - before.x) * scaleX;
+      const dy = (after.y - before.y) * scaleY;
+      const tangentLength = Math.hypot(dx, dy) || 1;
+      const normalX = (-dy / tangentLength) / (scaleX || 1);
+      const normalY = (dx / tangentLength) / (scaleY || 1);
+      const x = point.x + normalX * lateralPixels;
+      const y = point.y + normalY * lateralPixels;
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+      vehicle.setAttribute('transform', `translate(${x} ${y}) rotate(${angle}) scale(.66)`);
+    };
+
     const updateProgress = () => {
-      if (!story) return;
-      const rect = story.getBoundingClientRect();
-      const travel = Math.max(1, story.offsetHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, -rect.top / travel));
+      if (!story || !sequence) return;
+      const rect = sequence.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Progress spans the sequence's full entrance-to-exit through the viewport.
+      const progress = clamp((viewportHeight - rect.top) / (rect.height + viewportHeight), 0, 1);
       story.style.setProperty('--story-progress', String(progress));
-      const active = Math.min(3, Math.floor(progress * 4));
-      story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => chapter.classList.toggle('chapter-active', index === active));
-      const road = story.querySelector<SVGPathElement>('.road-motion-path');
-      const vehicles = story.querySelectorAll<SVGGElement>('.road-vehicle');
-      if (road && vehicles.length) {
-        const length = road.getTotalLength();
-        vehicles.forEach((vehicle, index) => {
-          const merge = progress > 0.76;
-          const offsets = merge ? [0.82, 0.82, 0.82] : [0.12, 0.27, 0.42];
-          const t = Math.min(0.96, Math.max(0.02, progress * 0.82 + offsets[index]));
-          const point = road.getPointAtLength(length * t);
-          const ahead = road.getPointAtLength(Math.min(length, length * t + 2));
-          const dx = ahead.x - point.x;
-          const dy = ahead.y - point.y;
-          const angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
-          const lateral = merge ? 0 : (index - 1) * 17;
-          const normalLength = Math.hypot(dx, dy) || 1;
-          const nx = -dy / normalLength;
-          const ny = dx / normalLength;
-          vehicle.setAttribute('transform', `translate(${point.x + nx * lateral} ${point.y + ny * lateral}) rotate(${angle}) scale(.66)`);
-          vehicle.style.opacity = merge && index > 0 ? '0' : '1';
-        });
-        const single = story.querySelector<SVGGElement>('.road-vehicle-single');
-        if (single) {
-          const point = road.getPointAtLength(length * Math.min(.96, Math.max(.02, progress * .82 + .42)));
-          const ahead = road.getPointAtLength(Math.min(length, length * Math.min(.96, Math.max(.02, progress * .82 + .42)) + 2));
-          const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * 180 / Math.PI + 90;
-          single.setAttribute('transform', `translate(${point.x} ${point.y}) rotate(${angle}) scale(.7)`);
-          single.style.opacity = progress > .76 ? '1' : '0';
-        }
+
+      const activeChapter = Math.min(3, Math.floor(progress * 4));
+      story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => {
+        chapter.classList.toggle('chapter-active', index === activeChapter);
+      });
+
+      if (!road || !pathLength || !vehicles.length) return;
+
+      // Keep the three cars travelling together; smoothly bring them into one lane,
+      // then hand the exact centre position to the single lead car.
+      const merge = smoothStep((progress - 0.60) / 0.22);
+      const convoyPosition = 0.06 + progress * 0.88;
+      vehicles.forEach((vehicle, index) => {
+        const lane = index - 1;
+        const staggeredPosition = convoyPosition + lane * 0.012 * (1 - merge);
+        placeVehicle(vehicle, staggeredPosition, lane * 24 * (1 - merge));
+        vehicle.style.opacity = String(1 - merge);
+      });
+
+      if (single) {
+        placeVehicle(single, convoyPosition, 0);
+        single.style.opacity = String(merge);
       }
     };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        updateProgress();
+      });
+    };
+
     updateProgress();
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', updateProgress);
-      window.removeEventListener('resize', updateProgress);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -102,7 +142,7 @@ export default function App() {
           <div className="story-progress"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
         </div>
         <div className="story-sequence">
-          <svg className="story-road" viewBox="0 0 1600 2600" preserveAspectRatio="none" aria-hidden="true">
+          <svg className="story-road" viewBox="0 0 1600 2800" preserveAspectRatio="none" aria-hidden="true">
             <defs><linearGradient id="roadShoulder" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#b7b7a4"/><stop offset=".18" stopColor="#dedbc9"/><stop offset=".5" stopColor="#eee9d8"/><stop offset=".82" stopColor="#d4d0be"/><stop offset="1" stopColor="#aaa995"/></linearGradient><linearGradient id="roadAsphalt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#303a35"/><stop offset=".18" stopColor="#414b44"/><stop offset=".52" stopColor="#4c554d"/><stop offset=".82" stopColor="#39443d"/><stop offset="1" stopColor="#27342d"/></linearGradient><filter id="roadShadow" x="-100%" y="-10%" width="300%" height="120%"><feGaussianBlur stdDeviation="5"/></filter></defs>
             <path className="road-shadow" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/><path className="road-shoulder" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/><path className="road-asphalt" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/><path className="road-edge-line" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/><path className="road-center" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/><path className="road-motion-path" d="M400 -120 C400 160 300 250 430 430 C560 610 1080 560 1210 760 C1340 960 1300 1060 1130 1210 C960 1360 520 1340 390 1530 C260 1720 300 1820 450 1980 C600 2140 1080 2110 1200 2300 C1320 2490 1280 2590 1160 2740"/>
             <g className="road-vehicle"><ellipse cx="1" cy="5" rx="17" ry="34" fill="#142019" opacity=".24"/><path d="M-10 -31 Q-9 -39 -4 -41 L4 -41 Q9 -39 10 -31 L14 -18 Q17 -10 17 2 L16 25 Q15 34 8 36 L-8 36 Q-15 34 -16 25 L-17 2 Q-17 -10 -14 -18Z" fill="#e8e4d8" stroke="#26372b" strokeWidth="1.8"/><path d="M-9 -24 Q0 -33 9 -24 L11 -8 L-11 -8Z" fill="#65766e" stroke="#33463a" strokeWidth="1"/><path d="M-11 -4 L11 -4 L12 13 L-12 13Z" fill="#65766e" opacity=".9"/><path d="M-9 18 L9 18 L8 28 Q0 32 -8 28Z" fill="#40564a"/><path d="M-12 -34 L-7 -37 L7 -37 L12 -34" fill="none" stroke="#fff5d9" strokeWidth="2.4" strokeLinecap="round"/><rect x="-14" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="11" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="-14" y="27" width="3" height="6" rx="1" fill="#d87967"/><rect x="11" y="27" width="3" height="6" rx="1" fill="#d87967"/><path d="M-17 -18 L-20 -14 L-20 -3 L-17 0 M17 -18 L20 -14 L20 -3 L17 0 M-17 11 L-20 14 L-20 23 L-16 25 M17 11 L20 14 L20 23 L16 25" fill="#25352a" stroke="#25352a" strokeWidth="2"/></g><g className="road-vehicle"><ellipse cx="1" cy="5" rx="17" ry="34" fill="#142019" opacity=".24"/><path d="M-10 -31 Q-9 -39 -4 -41 L4 -41 Q9 -39 10 -31 L14 -18 Q17 -10 17 2 L16 25 Q15 34 8 36 L-8 36 Q-15 34 -16 25 L-17 2 Q-17 -10 -14 -18Z" fill="#a9bf8a" stroke="#26372b" strokeWidth="1.8"/><path d="M-9 -24 Q0 -33 9 -24 L11 -8 L-11 -8Z" fill="#53685e" stroke="#33463a" strokeWidth="1"/><path d="M-11 -4 L11 -4 L12 13 L-12 13Z" fill="#53685e" opacity=".9"/><path d="M-9 18 L9 18 L8 28 Q0 32 -8 28Z" fill="#40564a"/><path d="M-12 -34 L-7 -37 L7 -37 L12 -34" fill="none" stroke="#fff5d9" strokeWidth="2.4" strokeLinecap="round"/><rect x="-14" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="11" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="-14" y="27" width="3" height="6" rx="1" fill="#d87967"/><rect x="11" y="27" width="3" height="6" rx="1" fill="#d87967"/><path d="M-17 -18 L-20 -14 L-20 -3 L-17 0 M17 -18 L20 -14 L20 -3 L17 0 M-17 11 L-20 14 L-20 23 L-16 25 M17 11 L20 14 L20 23 L16 25" fill="#25352a" stroke="#25352a" strokeWidth="2"/></g><g className="road-vehicle"><ellipse cx="1" cy="5" rx="17" ry="34" fill="#142019" opacity=".24"/><path d="M-10 -31 Q-9 -39 -4 -41 L4 -41 Q9 -39 10 -31 L14 -18 Q17 -10 17 2 L16 25 Q15 34 8 36 L-8 36 Q-15 34 -16 25 L-17 2 Q-17 -10 -14 -18Z" fill="#b9c4c4" stroke="#26372b" strokeWidth="1.8"/><path d="M-9 -24 Q0 -33 9 -24 L11 -8 L-11 -8Z" fill="#5c7067" stroke="#33463a" strokeWidth="1"/><path d="M-11 -4 L11 -4 L12 13 L-12 13Z" fill="#5c7067" opacity=".9"/><path d="M-9 18 L9 18 L8 28 Q0 32 -8 28Z" fill="#40564a"/><path d="M-12 -34 L-7 -37 L7 -37 L12 -34" fill="none" stroke="#fff5d9" strokeWidth="2.4" strokeLinecap="round"/><rect x="-14" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="11" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="-14" y="27" width="3" height="6" rx="1" fill="#d87967"/><rect x="11" y="27" width="3" height="6" rx="1" fill="#d87967"/><path d="M-17 -18 L-20 -14 L-20 -3 L-17 0 M17 -18 L20 -14 L20 -3 L17 0 M-17 11 L-20 14 L-20 23 L-16 25 M17 11 L20 14 L20 23 L16 25" fill="#25352a" stroke="#25352a" strokeWidth="2"/></g><g className="road-vehicle-single"><ellipse cx="1" cy="5" rx="17" ry="34" fill="#142019" opacity=".24"/><path d="M-10 -31 Q-9 -39 -4 -41 L4 -41 Q9 -39 10 -31 L14 -18 Q17 -10 17 2 L16 25 Q15 34 8 36 L-8 36 Q-15 34 -16 25 L-17 2 Q-17 -10 -14 -18Z" fill="#b6d987" stroke="#26372b" strokeWidth="1.8"/><path d="M-9 -24 Q0 -33 9 -24 L11 -8 L-11 -8Z" fill="#465e52" stroke="#33463a" strokeWidth="1"/><path d="M-11 -4 L11 -4 L12 13 L-12 13Z" fill="#465e52" opacity=".9"/><path d="M-9 18 L9 18 L8 28 Q0 32 -8 28Z" fill="#40564a"/><path d="M-12 -34 L-7 -37 L7 -37 L12 -34" fill="none" stroke="#fff5d9" strokeWidth="2.4" strokeLinecap="round"/><rect x="-14" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="11" y="-28" width="3" height="8" rx="1.2" fill="#fff3d1"/><rect x="-14" y="27" width="3" height="6" rx="1" fill="#d87967"/><rect x="11" y="27" width="3" height="6" rx="1" fill="#d87967"/><path d="M-17 -18 L-20 -14 L-20 -3 L-17 0 M17 -18 L20 -14 L20 -3 L17 0 M-17 11 L-20 14 L-20 23 L-16 25 M17 11 L20 14 L20 23 L16 25" fill="#25352a" stroke="#25352a" strokeWidth="2"/></g>
