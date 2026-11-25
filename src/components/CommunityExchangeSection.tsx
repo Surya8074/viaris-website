@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Users, Search, CarFront, ArrowUpRight, ArrowRight, Dumbbell, Trees, GraduationCap, BriefcaseBusiness, UserRound } from "lucide-react";
