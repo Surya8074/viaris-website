@@ -96,7 +96,7 @@ export default function ViarisFeatureSection() {
       const timeline = gsap.timeline({
         scrollTrigger: { trigger: section, start: 'top 72%', once: true }
       });
-      timeline.fromTo(brandRef.current, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .65, ease: 'power2.out' });
+      gsap.set(brandRef.current, { clearProps: 'opacity,transform' });
       timeline.to(routes, { strokeDashoffset: 0, duration: 1.35, stagger: .18, ease: 'power2.inOut' }, '-=.08');
       timeline.fromTo('.vf-feature__illustration', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .65, stagger: .12, ease: 'power2.out' }, '-=.2');
       timeline.fromTo('.vf-feature__copy', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .55, stagger: .12, ease: 'power2.out' }, '-=.25');
