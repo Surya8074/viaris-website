@@ -349,3 +349,33 @@ button, input { font: inherit; }
 .story-sequence .visual-caption{z-index:3}
 @media(max-width:900px) and (min-width:601px){.story-sequence .story-road{left:calc(50% - 24px);width:48px}}
 @media(max-width:600px){.story-sequence .story-road{left:2px;width:34px;opacity:.42}}
+
+/* Full-width SVG coordinate plane: preserve the road's designed thickness and let it weave behind the photo frames */
+.story-sequence{position:relative;isolation:isolate}
+.story-sequence > .story-road{
+  position:absolute!important;left:0!important;top:0!important;
+  width:100%!important;height:100%!important;max-width:none!important;
+  z-index:1!important;overflow:visible;pointer-events:none;opacity:1;
+}
+.story-sequence .story-chapter{position:relative;z-index:2}
+.story-sequence .chapter-visual{position:relative;z-index:3}
+.story-sequence .chapter-copy{position:relative;z-index:4;background:#fffefa}
+.story-sequence .road-shadow{fill:none;stroke:#17251b;stroke-width:82;stroke-linecap:round;stroke-linejoin:round;opacity:.18;filter:url(#roadShadow)}
+.story-sequence .road-shoulder{fill:none;stroke:url(#roadShoulder);stroke-width:76;stroke-linecap:round;stroke-linejoin:round}
+.story-sequence .road-asphalt{fill:none;stroke:url(#roadAsphalt);stroke-width:66;stroke-linecap:round;stroke-linejoin:round}
+.story-sequence .road-edge-line{fill:none;stroke:#d5d4c4;stroke-width:1.8;stroke-linecap:round;opacity:.9}
+.story-sequence .road-center{fill:none;stroke:#f4f1e6;stroke-width:3.4;stroke-linecap:round;stroke-dasharray:24 28;opacity:.9}
+.story-sequence .road-motion-path{fill:none;stroke:#b9e987;stroke-width:5;stroke-linecap:round;stroke-dasharray:3 24;filter:drop-shadow(0 0 7px rgba(175,232,125,.75));opacity:.95}
+@media(max-width:900px){
+ .story-sequence > .story-road{left:0!important;width:100%!important;opacity:.86}
+ .story-sequence .road-shoulder{stroke-width:66}
+ .story-sequence .road-asphalt{stroke-width:56}
+ .story-sequence .road-center{stroke-width:2.8;stroke-dasharray:18 24}
+}
+@media(max-width:600px){
+ .story-sequence > .story-road{left:0!important;width:100%!important;opacity:.58}
+ .story-sequence .road-shoulder{stroke-width:48}
+ .story-sequence .road-asphalt{stroke-width:40}
+ .story-sequence .road-center{stroke-width:2;stroke-dasharray:13 18}
+ .story-sequence .road-motion-path{stroke-width:3}
+}
