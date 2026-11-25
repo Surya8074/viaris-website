@@ -1,13 +1,67 @@
-.impact-section{--impact-ink:#1c3024;--impact-green:#315b42;--impact-leaf:#8eae76;background:#f5f6f0;color:var(--impact-ink);padding:clamp(76px,8vw,118px) clamp(22px,5vw,72px)}
-.impact-section *{box-sizing:border-box}.impact-inner{width:min(1160px,100%);margin:0 auto}.impact-heading{max-width:720px;margin:0 auto 52px;text-align:center}
-.impact-eyebrow,.impact-section-label{font-size:9px;font-weight:700;letter-spacing:.2em;color:#71816f}.impact-heading h2{margin:18px 0 15px;font-family:'Manrope',sans-serif;font-size:clamp(42px,5.3vw,68px);font-weight:700;line-height:.99;letter-spacing:-.075em;color:#1c3024}.impact-heading h2 em{font-style:normal;color:#87a66d}.impact-heading p{max-width:530px;margin:0 auto;color:#737d72;font-size:14px;line-height:1.8}
-.impact-calculator{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);background:#fffefa;border:1px solid #e5e9df;border-radius:24px;overflow:hidden;box-shadow:0 18px 48px rgba(31,48,35,.055)}
-.impact-controls{padding:clamp(24px,3.3vw,42px);border-right:1px solid #e9ece5}.impact-controls-top,.impact-results-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.impact-live{display:flex;align-items:center;gap:7px;color:#71816f;font-size:8px;font-weight:700;letter-spacing:.14em}.impact-live i{width:6px;height:6px;border-radius:50%;background:#8eae76;box-shadow:0 0 0 3px #edf3e7}
-.impact-control{display:block;margin-top:34px}.impact-control-title{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#59665a;font-size:12px}.impact-control-title strong{color:#1d3326;font-size:13px;font-weight:700;white-space:nowrap}.impact-control input[type=range]{display:block;width:100%;margin:19px 0 8px;accent-color:#527a4b;cursor:pointer}.impact-range-labels{display:flex;justify-content:space-between;color:#a0a69c;font-size:9px}
-.impact-people{display:flex;gap:9px;margin-top:17px}.impact-people button{width:42px;height:42px;border:1px solid #e1e7dc;border-radius:50%;background:#fffefa;color:#687568;font:600 13px 'DM Sans',sans-serif;cursor:pointer;transition:background .2s,border-color .2s,color .2s}.impact-people button:hover{border-color:#8eae76}.impact-people button.is-selected{background:#315b42;border-color:#315b42;color:#fff}.impact-hint{display:block;margin-top:9px;color:#9aa197;font-size:9px}
-.impact-fuel-price{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:32px;padding-top:22px;border-top:1px solid #edf0e9;color:#788178;font-size:10px}.impact-price-input{display:flex;align-items:center;gap:5px;color:#203729}.impact-price-input b{font-size:13px}.impact-price-input input{width:48px;padding:5px 0;border:0;border-bottom:1px solid #bdc9b5;border-radius:0;background:transparent;color:#203729;font:700 13px 'DM Sans',sans-serif;outline:none}.impact-price-input small{color:#9aa197;font-size:9px}
-.impact-results{padding:clamp(24px,3.3vw,42px);background:#fbfcf8}.impact-period{color:#99a294;font-size:8px;font-weight:700;letter-spacing:.15em}.impact-road-art{height:112px;margin:16px -8px 4px;overflow:hidden}.impact-road-art svg{width:100%;height:100%;display:block}.impact-primary-result{padding:10px 0 23px;border-bottom:1px solid #e6ebe1}.impact-primary-result>span{display:block;color:#718071;font-size:11px}.impact-primary-result strong{display:block;margin-top:5px;color:#244531;font-family:'Manrope',sans-serif;font-size:clamp(44px,5vw,62px);font-weight:700;line-height:1;letter-spacing:-.07em;font-variant-numeric:tabular-nums}.impact-primary-result strong small{font-size:17px;font-weight:600;letter-spacing:-.02em}
-.impact-metrics{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:22px;padding-top:23px}.impact-metric{display:grid;grid-template-columns:26px 1fr;column-gap:9px;align-items:center}.impact-metric-icon{grid-row:span 2;display:flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;background:#edf3e8;color:#53764a}.impact-metric-label{color:#879084;font-size:9px;line-height:1.35}.impact-metric strong{margin-top:3px;color:#2a3e30;font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}.impact-disclaimer{margin:24px 0 0;color:#9aa197;font-size:9px;line-height:1.6}.impact-footnote{margin:22px 0 0;text-align:center;color:#7c877a;font-size:11px;letter-spacing:.01em}
-@media(max-width:760px){.impact-section{padding:68px 18px 76px}.impact-heading{margin-bottom:34px}.impact-heading p{font-size:13px}.impact-calculator{grid-template-columns:1fr;border-radius:20px}.impact-controls{border-right:0;border-bottom:1px solid #e9ece5;padding:24px}.impact-results{padding:24px}.impact-control{margin-top:29px}.impact-road-art{height:88px}}
-@media(max-width:420px){.impact-controls-top,.impact-results-top{align-items:flex-start}.impact-section-label{font-size:8px}.impact-metrics{column-gap:12px}.impact-metric strong{font-size:14px}.impact-metric-label{font-size:8px}.impact-fuel-price{font-size:9px}}
-@media(prefers-reduced-motion:reduce){.impact-section *{transition:none!important}}
+.impact-section{--impact-ink:#203629;--impact-green:#315b42;--impact-leaf:#88a96f;--impact-muted:#788277;background:#f5f6f0;color:var(--impact-ink);padding:clamp(76px,8vw,116px) clamp(22px,5vw,72px)}
+.impact-section *{box-sizing:border-box}
+.impact-inner{width:min(1160px,100%);margin:0 auto}
+.impact-heading{max-width:760px;margin:0 auto clamp(34px,4vw,48px);text-align:center}
+.impact-eyebrow{font-size:9px;font-weight:700;letter-spacing:.18em;color:#788875}
+.impact-heading h2{margin:17px 0 16px;font-family:'Manrope',sans-serif;font-size:clamp(40px,5.1vw,66px);font-weight:700;line-height:1.02;letter-spacing:-.065em;color:#203629}
+.impact-heading h2 em{font-style:normal;color:#7f9f69}
+.impact-heading p{max-width:560px;margin:0 auto;color:#6f796e;font-size:14px;line-height:1.75}
+.impact-calculator{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);background:#fffefa;border:1px solid #e3e8df;border-radius:22px;overflow:hidden;box-shadow:0 14px 38px rgba(31,48,35,.045)}
+.impact-controls{padding:clamp(26px,3.4vw,42px);border-right:1px solid #e8ece5}
+.impact-panel-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-bottom:23px;border-bottom:1px solid #edf0e9}
+.impact-step{font-size:9px;font-weight:700;letter-spacing:.16em;color:#87927f}
+.impact-panel-heading h3{margin:8px 0 0;font-family:'Manrope',sans-serif;font-size:20px;font-weight:650;letter-spacing:-.035em;color:#203629}
+.impact-live{display:flex;align-items:center;gap:7px;margin-top:3px;color:#87927f;font-size:9px;white-space:nowrap}
+.impact-live i{width:6px;height:6px;border-radius:50%;background:#8ba978;box-shadow:0 0 0 3px #edf3e8}
+.impact-control{display:block;min-width:0;margin:27px 0 0;padding:0;border:0}
+.impact-control-title{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#536255;font-size:12px;font-weight:500}
+.impact-control-title output{color:#203629;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.impact-control-title output small{font-size:10px;font-weight:500;color:#87927f}
+.impact-range{display:block;width:100%;height:4px;margin:19px 0 10px;appearance:none;-webkit-appearance:none;border-radius:99px;background:linear-gradient(90deg,#6f9160 0%,#a8bc96 100%);cursor:pointer;outline-offset:5px}
+.impact-range::-webkit-slider-thumb{width:17px;height:17px;appearance:none;-webkit-appearance:none;border:3px solid #fffefa;border-radius:50%;background:#315b42;box-shadow:0 0 0 1px #315b42,0 2px 5px #20362925}
+.impact-range::-moz-range-thumb{width:12px;height:12px;border:3px solid #fffefa;border-radius:50%;background:#315b42;box-shadow:0 0 0 1px #315b42,0 2px 5px #20362925}
+.impact-range-labels{display:flex;justify-content:space-between;color:#a0a89e;font-size:9px;font-variant-numeric:tabular-nums}
+.impact-passengers legend{width:100%;padding:0}
+.impact-people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:13px}
+.impact-people button{min-height:51px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid #e3e8df;border-radius:10px;background:#fffefa;color:#526052;font:700 14px 'Manrope',sans-serif;cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.impact-people button span{font:500 8px 'DM Sans',sans-serif;color:#929b90}
+.impact-people button:hover{border-color:#9caf8f;transform:translateY(-1px)}
+.impact-people button.is-selected{border-color:#315b42;background:#315b42;color:#fff}
+.impact-people button.is-selected span{color:#d9e5d2}
+.impact-people button:focus-visible{outline:2px solid #7f9f69;outline-offset:3px}
+.impact-hint{display:block;margin-top:9px;color:#9aa197;font-size:9px}
+.impact-fuel-price{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:26px;padding-top:19px;border-top:1px solid #edf0e9;color:#647064;font-size:11px}
+.impact-price-input{display:flex;align-items:center;gap:6px;color:#203629}
+.impact-price-input>span{font-size:14px;font-weight:700}
+.impact-price-input input{width:54px;padding:5px 0;border:0;border-bottom:1px solid #b9c6b1;border-radius:0;background:transparent;color:#203629;font:700 14px 'DM Sans',sans-serif;font-variant-numeric:tabular-nums;outline:none}
+.impact-price-input input:focus{border-color:#315b42}
+.impact-price-input small{color:#929b90;font-size:9px}
+.impact-results{min-width:0;padding:clamp(26px,3.4vw,42px);background:#fafbf7}
+.impact-results-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.impact-period{color:#8c9788;font-size:9px;font-weight:700;letter-spacing:.14em}
+.impact-road-art{position:relative;height:130px;margin:10px -4px 2px;overflow:hidden}
+.impact-road-art svg{display:block;width:100%;height:100%;overflow:visible}
+.impact-road-base{fill:none;stroke:#e4eadf;stroke-width:35;stroke-linecap:round}
+.impact-road-centre{fill:none;stroke:#fffefa;stroke-width:1.5;stroke-dasharray:7 11;stroke-linecap:round}
+.impact-car{fill:#315b42}
+.impact-car-two{fill:#78966a}
+.impact-car-three{fill:#a8b99b}
+.impact-car-window{fill:#e9efe4}
+.impact-car-wheel{fill:#203629}
+.impact-road-caption{position:absolute;right:2px;bottom:1px;color:#9aa397;font-size:8px;letter-spacing:.015em}
+.impact-primary-result{padding:8px 0 20px;border-bottom:1px solid #e6ebe1}
+.impact-primary-result>span:first-child{display:block;color:#687568;font-size:12px}
+.impact-primary-result strong{display:block;margin-top:5px;color:#244531;font-family:'Manrope',sans-serif;font-size:clamp(46px,5vw,62px);font-weight:700;line-height:1;letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+.impact-primary-result strong small{font-size:16px;font-weight:600;letter-spacing:-.02em}
+.impact-result-context{display:block;margin-top:8px;color:#8b9588;font-size:10px;line-height:1.5}
+.impact-metrics{display:grid;grid-template-columns:1fr 1fr;column-gap:18px;row-gap:20px;padding-top:20px}
+.impact-metric{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:9px;align-items:center}
+.impact-metric-icon{grid-row:span 2;display:flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:50%;background:#edf2e8;color:#58764e}
+.impact-metric-label{color:#808b7e;font-size:10px;line-height:1.35}
+.impact-metric strong{margin-top:3px;color:#2a3e30;font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+.impact-disclaimer{margin:20px 0 0;color:#9aa397;font-size:9px;line-height:1.6}
+.impact-footnote{margin:20px 0 0;text-align:center;color:#7c877a;font-size:11px}
+@media(max-width:820px){.impact-calculator{grid-template-columns:1fr}.impact-controls{border-right:0;border-bottom:1px solid #e8ece5}.impact-results{padding:28px}}
+@media(max-width:760px){.impact-section{padding:68px 18px 76px}.impact-heading{margin-bottom:34px}.impact-heading p{font-size:13px}.impact-controls,.impact-results{padding:24px}.impact-road-art{height:112px}.impact-control{margin-top:25px}}
+@media(max-width:420px){.impact-panel-heading{flex-direction:column;gap:8px}.impact-live{margin-top:0}.impact-metrics{column-gap:12px;row-gap:18px}.impact-metric strong{font-size:14px}.impact-metric-label{font-size:9px}.impact-road-caption{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.impact-people button{transition:none}.impact-car animateMotion{display:none}}
