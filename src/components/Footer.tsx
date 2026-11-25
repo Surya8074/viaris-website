@@ -54,11 +54,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="vr-footer__landscape" aria-hidden="true">
-        <svg className="vr-footer__route" viewBox="0 0 1600 220" preserveAspectRatio="none">
-          <path d="M-30 112C180 28 330 48 495 116s268 89 412 16 274-127 430-79 218 112 315 72" />
-        </svg>
-      </div>
+      <div className="vr-footer__landscape" aria-hidden="true" />
 
       <div className="vr-footer__bottom">
         <span className="vr-footer__copyright">© {new Date().getFullYear()} Viaris Ride. All rights reserved.</span>
