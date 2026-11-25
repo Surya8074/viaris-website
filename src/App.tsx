@@ -22,10 +22,29 @@ export default function App() {
       story.style.setProperty('--story-progress', String(progress));
       const active = Math.min(3, Math.floor(progress * 4));
       story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => chapter.classList.toggle('chapter-active', index === active));
-      const convoy = story.querySelector<HTMLElement>('.route-convoy');
-      if (convoy) {
-        convoy.style.setProperty('--convoy-y', `${Math.min(94, 5 + progress * 88)}%`);
-        convoy.classList.toggle('convoy-merged', progress > 0.78);
+      const road = story.querySelector<SVGPathElement>('.road-motion-path');
+      const vehicles = story.querySelectorAll<SVGGElement>('.road-vehicle');
+      if (road && vehicles.length) {
+        const length = road.getTotalLength();
+        vehicles.forEach((vehicle, index) => {
+          const merge = progress > 0.76;
+          const offsets = merge ? [0.82, 0.82, 0.82] : [0.12, 0.27, 0.42];
+          const t = Math.min(0.96, Math.max(0.02, progress * 0.82 + offsets[index]));
+          const point = road.getPointAtLength(length * t);
+          const ahead = road.getPointAtLength(Math.min(length, length * t + 2));
+          const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * 180 / Math.PI;
+          const lateral = merge ? 0 : (index - 1) * 23;
+          vehicle.setAttribute('transform', `translate(${point.x + lateral} ${point.y}) rotate(${angle}) scale(.78)`);
+          vehicle.style.opacity = merge && index > 0 ? '0' : '1';
+        });
+        const single = story.querySelector<SVGGElement>('.road-vehicle-single');
+        if (single) {
+          const point = road.getPointAtLength(length * Math.min(.96, Math.max(.02, progress * .82 + .42)));
+          const ahead = road.getPointAtLength(Math.min(length, length * Math.min(.96, Math.max(.02, progress * .82 + .42)) + 2));
+          const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * 180 / Math.PI;
+          single.setAttribute('transform', `translate(${point.x} ${point.y}) rotate(${angle}) scale(.82)`);
+          single.style.opacity = progress > .76 ? '1' : '0';
+        }
       }
     };
     updateProgress();
@@ -78,8 +97,16 @@ export default function App() {
           <div className="story-progress"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
         </div>
         <div className="story-sequence">
-          <div className="route-convoy" aria-hidden="true"><span className="convoy-car car-a">🚗</span><span className="convoy-car car-b">🚙</span><span className="convoy-car car-c">🚕</span><span className="convoy-single">🚘</span></div>
-          <svg className="story-route" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path className="story-route-track" d="M50 0 C50 130 50 130 50 250 S50 370 50 500 S50 630 50 750 S50 870 50 1000"/><path className="story-route-progress" d="M50 0 C50 130 50 130 50 250 S50 370 50 500 S50 630 50 750 S50 870 50 1000"/></svg>
+          <svg className="story-road" viewBox="0 0 1200 2600" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="roadGlow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#8eaf6e" stopOpacity=".2"/><stop offset=".5" stopColor="#b5e783" stopOpacity=".95"/><stop offset="1" stopColor="#8eaf6e" stopOpacity=".2"/></linearGradient><filter id="roadBlur"><feGaussianBlur stdDeviation="9"/></filter></defs>
+            <path className="road-halo" d="M600 -30 C600 170 1030 180 1010 390 S160 600 190 830 S1060 1010 1000 1260 S150 1500 220 1740 S1030 1960 950 2180 S500 2450 600 2630"/>
+            <path className="road-surface" d="M600 -30 C600 170 1030 180 1010 390 S160 600 190 830 S1060 1010 1000 1260 S150 1500 220 1740 S1030 1960 950 2180 S500 2450 600 2630"/>
+            <path className="road-edge" d="M600 -30 C600 170 1030 180 1010 390 S160 600 190 830 S1060 1010 1000 1260 S150 1500 220 1740 S1030 1960 950 2180 S500 2450 600 2630"/>
+            <path className="road-center" d="M600 -30 C600 170 1030 180 1010 390 S160 600 190 830 S1060 1010 1000 1260 S150 1500 220 1740 S1030 1960 950 2180 S500 2450 600 2630"/>
+            <path className="road-motion-path" d="M600 -30 C600 170 1030 180 1010 390 S160 600 190 830 S1060 1010 1000 1260 S150 1500 220 1740 S1030 1960 950 2180 S500 2450 600 2630" />
+            {[0,1,2].map((v)=><g className="road-vehicle" key={v}><ellipse cx="0" cy="3" rx="24" ry="42" fill="#17231c" opacity=".22"/><rect x="-18" y="-43" width="36" height="86" rx="12" fill={v===0?'#f5f1e8':v===1?'#8eaa73':'#c8d0c5'} stroke="#25352a" strokeWidth="2"/><path d="M-13 -22 Q0 -31 13 -22 L13 -3 L-13 -3Z" fill="#63766b"/><path d="M-13 8 L13 8 L13 25 Q0 32 -13 25Z" fill="#53675c"/><rect x="-15" y="-37" width="7" height="5" rx="2" fill="#f9f4d8"/><rect x="8" y="-37" width="7" height="5" rx="2" fill="#f9f4d8"/><rect x="-15" y="32" width="7" height="5" rx="2" fill="#d97862"/><rect x="8" y="32" width="7" height="5" rx="2" fill="#d97862"/><rect x="-21" y="-24" width="4" height="17" rx="2" fill="#26362b"/><rect x="17" y="-24" width="4" height="17" rx="2" fill="#26362b"/><rect x="-21" y="12" width="4" height="17" rx="2" fill="#26362b"/><rect x="17" y="12" width="4" height="17" rx="2" fill="#26362b"/></g>)}
+            <g className="road-vehicle-single"><ellipse cx="0" cy="3" rx="25" ry="44" fill="#17231c" opacity=".22"/><rect x="-19" y="-45" width="38" height="90" rx="13" fill="#b6d987" stroke="#24362a" strokeWidth="2"/><path d="M-14 -23 Q0 -33 14 -23 L14 -2 L-14 -2Z" fill="#52695c"/><path d="M-14 9 L14 9 L14 27 Q0 34 -14 27Z" fill="#52695c"/><rect x="-15" y="-39" width="7" height="5" rx="2" fill="#fff5d4"/><rect x="8" y="-39" width="7" height="5" rx="2" fill="#fff5d4"/><rect x="-15" y="34" width="7" height="5" rx="2" fill="#dc7864"/><rect x="8" y="34" width="7" height="5" rx="2" fill="#dc7864"/></g>
+          </svg>
           <article className="story-chapter chapter-community" data-chapter="0">
             <div className="chapter-copy" data-reveal><span className="chapter-number">01 <i/> THE PLACE WE SHARE</span><h3>A hundred people.<br/><em>One community.</em></h3><p>Different routines. Similar goals. A shared place to call home.</p><span className="chapter-note"><Building2 size={15}/> LAKEVIEW RESIDENCY · 7:45 AM</span></div>
             <div className="chapter-visual community-visual" data-reveal><div className="story-photo community-photo" role="img" aria-label="A modern residential community in the morning"/><span className="visual-caption">THE DAY BEGINS HERE <b>↗</b></span></div>
