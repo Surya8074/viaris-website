@@ -430,3 +430,8 @@ button, input { font: inherit; }
 .story-sequence > .story-chapter{position:relative!important;z-index:1!important}
 .story-sequence .chapter-visual{position:relative!important;z-index:2!important;isolation:isolate!important;background:#fffefa!important}
 .story-sequence .chapter-visual .story-photo{z-index:0!important}
+
+
+/* Keep the dark film behind hero copy so the text stays bright. */
+.hero-wash{z-index:1!important;background:rgba(0,0,0,.24)!important}
+.hero-copy,.hero-topline,.hero-bottomline{z-index:2!important;position:absolute}
