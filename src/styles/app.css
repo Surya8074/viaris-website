@@ -405,3 +405,11 @@ button, input { font: inherit; }
 .story-masthead>div{width:100%;display:flex;justify-content:center}
 .story-masthead h2{max-width:100%;text-align:center}
 .story-intro{max-width:720px;margin:0 auto;text-align:center}
+
+
+/* Keep the illustrated road underneath the chapter photography. */
+.story-sequence > .story-road{z-index:0!important}
+.story-sequence .chapter-visual{position:relative;z-index:2!important}
+.story-sequence .chapter-visual .story-photo{position:absolute;z-index:1!important}
+.story-sequence .chapter-visual:before,.story-sequence .chapter-visual:after{z-index:2}
+.story-sequence .chapter-visual .visual-caption{z-index:3}
