@@ -1,0 +1,23 @@
+.vb-section{--vb-ink:#101a2d;--vb-muted:#566174;--vb-green:#32b84a;--vb-dark:#155c32;--vb-pale:#eff8ea;--vb-border:#edf0eb;background:#fcfcfa;color:var(--vb-ink);padding:clamp(54px,5.2vw,86px) clamp(24px,3.7vw,62px) 44px;overflow:hidden}
+.vb-section *{box-sizing:border-box}
+.vb-header{text-align:center;margin:0 auto 46px}
+.vb-eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:220px;padding:12px 25px;border-radius:999px;background:#eff8ea;color:#101a2d;font-size:17px;font-weight:700}
+.vb-eyebrow span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#d9f0d3;color:#23983b;font-size:20px}
+.vb-header h2{margin:20px 0 0;font:800 clamp(52px,5.1vw,84px)/1.05 'Manrope','Inter',sans-serif;letter-spacing:-.055em;color:#101a2d}
+.vb-underline{display:block;width:220px;height:5px;margin:13px auto 25px;border-radius:50%;background:var(--vb-green);transform:rotate(-.5deg)}
+.vb-header>p{margin:0 auto;color:#46536b;font-size:clamp(16px,1.45vw,23px);line-height:1.45;font-weight:400}
+.vb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.55vw,26px);margin:0 auto 40px}
+.vb-card{min-width:0;min-height:300px;padding:29px 14px 25px;border:1px solid var(--vb-border);border-radius:26px;background:#fff;box-shadow:0 12px 34px rgba(24,48,33,.07);display:flex;flex-direction:column;align-items:center;text-align:center}
+.vb-card-icon{display:block;width:112px;height:105px;object-fit:contain;margin:0 auto 17px}
+.vb-card h3{margin:0 0 14px;color:#101a2d;font:750 clamp(18px,1.75vw,29px)/1.18 'Manrope','Inter',sans-serif;letter-spacing:-.045em}
+.vb-card p{margin:0;color:#566174;font-size:clamp(14px,1.25vw,20px);line-height:1.45}
+.vb-banner{position:relative;isolation:isolate;display:flex;align-items:center;min-height:165px;gap:clamp(20px,3vw,48px);padding:25px 3%;overflow:hidden;border-radius:27px;background:linear-gradient(90deg,#f2f8ef 0%,#f6faf4 64%,#edf6e9 100%)}
+.vb-banner h3{position:relative;z-index:2;flex:0 0 25%;margin:0;color:#155c32;font:750 clamp(17px,1.55vw,26px)/1.3 'Manrope','Inter',sans-serif;letter-spacing:-.035em}
+.vb-divider{position:relative;z-index:2;width:1px;height:58px;flex:0 0 1px;background:#cfe3ca}
+.vb-proof{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(17px,3.1vw,50px);flex:1;min-width:0}
+.vb-proof-item{display:flex;align-items:center;gap:12px;color:#46536b;font-size:clamp(13px,1.15vw,20px);line-height:1.35;white-space:nowrap}
+.vb-proof-item svg{width:42px;height:42px;flex:0 0 42px;color:#249d3d}
+.vb-community-art{position:absolute;z-index:1;right:0;bottom:0;width:34%;height:100%;object-fit:cover;object-position:right center;pointer-events:none}
+@media(max-width:1100px){.vb-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.vb-card{min-height:285px}.vb-banner{flex-wrap:wrap;min-height:190px;padding:24px 28px}.vb-banner h3{flex-basis:28%}.vb-proof{gap:20px}.vb-community-art{width:31%;opacity:.45}.vb-proof-item{font-size:14px}.vb-proof-item svg{width:34px;height:34px;flex-basis:34px}}
+@media(max-width:699px){.vb-section{padding:54px 18px 30px}.vb-header{margin-bottom:32px}.vb-eyebrow{min-width:160px;padding:9px 18px;font-size:14px}.vb-header h2{font-size:48px;margin-top:15px}.vb-underline{width:150px;margin:10px auto 19px;height:4px}.vb-header>p{font-size:16px;max-width:480px}.vb-desktop-break{display:none}.vb-grid{grid-template-columns:1fr;gap:15px;margin-bottom:24px}.vb-card{min-height:0;padding:22px 16px 24px;border-radius:22px}.vb-card-icon{width:96px;height:82px;margin-bottom:12px}.vb-card h3{font-size:22px;margin-bottom:9px}.vb-card p{font-size:16px}.vb-banner{display:grid;grid-template-columns:1fr;gap:18px;padding:24px 22px 132px;border-radius:22px}.vb-banner h3{font-size:22px}.vb-divider{width:100%;height:1px}.vb-proof{display:grid;grid-template-columns:1fr 1fr;gap:15px}.vb-proof-item{font-size:13px;white-space:normal;gap:9px}.vb-proof-item svg{width:30px;height:30px;flex-basis:30px}.vb-community-art{width:100%;height:120px;opacity:1;object-fit:cover;object-position:right bottom}}
+@media(prefers-reduced-motion:reduce){.vb-section *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
