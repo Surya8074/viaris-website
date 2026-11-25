@@ -398,3 +398,10 @@ button, input { font: inherit; }
   .story-sequence .road-vehicle,
   .story-sequence .road-vehicle-single { transition: none; }
 }
+
+
+/* Center the community story heading and supporting subheading. */
+.story-masthead{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:24px}
+.story-masthead>div{width:100%;display:flex;justify-content:center}
+.story-masthead h2{max-width:100%;text-align:center}
+.story-intro{max-width:720px;margin:0 auto;text-align:center}
