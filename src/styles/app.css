@@ -413,3 +413,12 @@ button, input { font: inherit; }
 .story-sequence .chapter-visual .story-photo{position:absolute;z-index:1!important}
 .story-sequence .chapter-visual:before,.story-sequence .chapter-visual:after{z-index:2}
 .story-sequence .chapter-visual .visual-caption{z-index:3}
+
+
+/* Definitive layer order: road behind every chapter photo frame. */
+.story-sequence{isolation:isolate}
+.story-sequence > .story-road{position:absolute!important;z-index:0!important;pointer-events:none!important}
+.story-sequence > .story-chapter{position:relative!important;z-index:1!important;isolation:isolate}
+.story-sequence .chapter-visual{position:relative!important;z-index:2!important;isolation:isolate;background-color:#e9ece4!important;overflow:hidden}
+.story-sequence .chapter-visual .story-photo{position:absolute!important;inset:0;z-index:0!important}
+.story-sequence .chapter-visual .visual-caption{position:absolute;z-index:2!important}
