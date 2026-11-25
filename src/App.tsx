@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowUpRight, Menu, MapPin, Users, Fuel, Wallet, ArrowUpRight as DiagonalArrow } from 'lucide-react';
+import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2 } from 'lucide-react';
 
 export default function App() {
   useEffect(() => {
@@ -49,53 +49,32 @@ export default function App() {
         </div>
       </section>
 
-      <section className="commute-story" id="experiences" aria-labelledby="commute-title">
-        <div className="commute-intro">
-          <div className="commute-copy" data-reveal>
-            <span className="story-index">02 / THE EVERYDAY COMMUTE</span>
-            <p className="story-overline">EVERY MORNING, THE SAME STORY</p>
-            <h2 id="commute-title">Same community.<br /><em>Same destination.</em></h2>
-            <p className="story-lede">Yet we leave separately. One car at a time, burning fuel, spending more — often heading to the very same workplace.</p>
-          </div>
-          <div className="commute-map" data-reveal aria-label="Illustration of separate commutes leaving one community">
-            <div className="map-heading"><span>LAKEVIEW RESIDENCY</span><span>7:45 AM · MONDAY</span></div>
-            <div className="map-origin"><span className="origin-pulse"></span><MapPin size={15}/><span>YOUR COMMUNITY</span></div>
-            <svg className="route-art" viewBox="0 0 620 310" role="img" aria-label="Three separate routes travelling toward the same office district">
-              <path className="route route-one" d="M82 35 C180 35 166 120 278 120 S420 62 548 62"/>
-              <path className="route route-two" d="M82 35 C190 35 185 190 300 190 S420 150 548 150"/>
-              <path className="route route-three" d="M82 35 C190 35 180 265 315 265 S438 238 548 238"/>
-              <circle className="route-dot dot-one" cx="278" cy="120" r="5"/><circle className="route-dot dot-two" cx="300" cy="190" r="5"/><circle className="route-dot dot-three" cx="315" cy="265" r="5"/>
-            </svg>
-            <div className="solo-car car-one"><span className="car-symbol">↗</span><span>ALONE</span></div>
-            <div className="solo-car car-two"><span className="car-symbol">↗</span><span>ALONE</span></div>
-            <div className="solo-car car-three"><span className="car-symbol">↗</span><span>ALONE</span></div>
-            <div className="map-destination"><span className="destination-dot"></span><span>THE SAME WORKPLACE DISTRICT</span></div>
-            <div className="map-foot"><span>3 CARS</span><span>3 SEPARATE JOURNEYS</span></div>
-          </div>
+      <section className="community-story" id="experiences" aria-labelledby="community-story-title">
+        <div className="story-masthead">
+          <div><span className="story-index">02 / THE EVERYDAY COMMUTE</span><p className="story-overline">A COMMUNITY IN MOTION</p><h2 id="community-story-title">A hundred people.<br /><em>One community.</em></h2></div>
+          <p className="story-intro">Look a little closer. Some of the people leaving your community are already going your way.</p>
+          <div className="story-progress"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
         </div>
-
-        <div className="commute-turn">
-          <div className="turn-copy" data-reveal>
-            <span className="turn-kicker">NOW IMAGINE THIS</span>
-            <h2>What if your neighbour was <em>going your way?</em></h2>
-            <p>One shared ride could mean less fuel, a lighter commute and someone new to know.</p>
-            <div className="turn-benefits">
-              <span><Fuel size={16}/> Share the fuel cost</span>
-              <span><Wallet size={16}/> Earn from empty seats</span>
-              <span><Users size={16}/> Meet your neighbours</span>
-            </div>
-          </div>
-          <div className="shared-journey" data-reveal>
-            <div className="shared-photo" role="img" aria-label="Two neighbours sharing a morning car journey"></div>
-            <div className="shared-route">
-              <span className="shared-route-line"></span>
-              <span className="shared-route-point"><MapPin size={13}/></span>
-              <span className="shared-route-label">ONE ROUTE · SHARED</span>
-              <span className="shared-route-end"><DiagonalArrow size={14}/></span>
-            </div>
-            <div className="shared-caption"><span>YOUR NEXT CO-PASSENGER</span><strong>could be your neighbour.</strong></div>
-          </div>
+        <div className="story-sequence">
+          <svg className="story-route" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true"><path className="story-route-track" d="M60 0 C60 100 18 120 60 220 S104 330 60 440 S16 570 60 680 S105 810 60 920 S18 1060 60 1200"/><path className="story-route-progress" d="M60 0 C60 100 18 120 60 220 S104 330 60 440 S16 570 60 680 S105 810 60 920 S18 1060 60 1200"/></svg>
+          <article className="story-chapter" data-chapter="0">
+            <div className="chapter-copy" data-reveal><span className="chapter-number">01 <i/> THE PLACE WE SHARE</span><h3>A hundred people.<br/><em>One community.</em></h3><p>Different routines. Similar goals. A shared place to call home.</p><span className="chapter-note"><Building2 size={15}/> LAKEVIEW RESIDENCY · 7:45 AM</span></div>
+            <div className="chapter-visual community-visual" data-reveal><div className="story-photo community-photo" role="img" aria-label="Morning activity at a modern apartment community"/><span className="visual-caption">THE DAY BEGINS HERE <b>↗</b></span></div>
+          </article>
+          <article className="story-chapter" data-chapter="1">
+            <div className="chapter-visual commute-visual" data-reveal><div className="story-photo commute-photo" role="img" aria-label="A car leaving a residential community in the morning"/><span className="visual-caption">MONDAY · 8:05 AM <b>01 CAR / 01 PERSON</b></span></div>
+            <div className="chapter-copy" data-reveal><span className="chapter-number">02 <i/> THE DAILY ROUTINE</span><h3>Every morning,<br/>we leave <em>separately.</em></h3><p>Different cars. Different journeys. Often heading to the very same workplace.</p><div className="route-facts"><span><CarFront size={17}/> One car at a time</span><span><MapPin size={17}/> Same direction</span></div></div>
+          </article>
+          <article className="story-chapter" data-chapter="2">
+            <div className="chapter-copy" data-reveal><span className="chapter-number">03 <i/> THE LITTLE DISCOVERY</span><h3>But what if your neighbour was <em>going your way?</em></h3><p>Someone just a few doors away could be heading to the same destination.</p><span className="chapter-note"><Users size={15}/> TWO ROUTINES. ONE SHARED DIRECTION.</span></div>
+            <div className="chapter-visual connection-visual" data-reveal><div className="story-photo connection-photo" role="img" aria-label="Neighbours meeting beside a car outside their apartment community"/><div className="connection-line"><span/><span/><span/></div><span className="visual-caption">A FAMILIAR FACE. A NEW CONNECTION.</span></div>
+          </article>
+          <article className="story-chapter story-final" data-chapter="3">
+            <div className="chapter-visual shared-visual" data-reveal><div className="story-photo shared-photo-image" role="img" aria-label="Neighbours sharing a car journey together"/><span className="visual-caption">ONE CAR · ONE SHARED JOURNEY</span></div>
+            <div className="chapter-copy shared-story-copy" data-reveal><span className="chapter-number">04 <i/> THE VIARIS WAY</span><h3>One ride.<br/><em>Less spent.</em><br/>More connected.</h3><p>Share the journey, split the cost and get to know the people going your way.</p><div className="shared-outcomes"><span>Share the fuel cost</span><span>Make empty seats count</span><span>Meet your neighbours</span></div><a className="story-cta" href="#how-it-works">See how Viaris works <ArrowUpRight size={16}/></a></div>
+          </article>
         </div>
+        <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
       </section>
       <div id="how-it-works" /><div id="communities" /><div id="get-app" />
     </main>

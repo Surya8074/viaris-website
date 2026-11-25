@@ -115,3 +115,58 @@ button, input { font: inherit; }
 @media (max-width: 900px) { .commute-intro,.commute-turn { grid-template-columns: 1fr; padding: 88px 7vw; gap: 48px; } .story-index { margin-bottom: 48px; }.commute-map { min-height: 420px; }.shared-journey { justify-self: stretch; max-width: none; } }
 @media (max-width: 600px) { .commute-intro,.commute-turn { padding: 72px 22px; gap: 38px; min-height: auto; } .commute-copy h2,.turn-copy h2 { font-size: clamp(42px,12vw,58px); } .story-index { margin-bottom: 42px; } .story-lede,.turn-copy > p { font-size: 13px; } .commute-map { min-height: 350px; padding: 18px; } .map-origin { top: 72px; left: 6%; font-size: 7px; } .route-art { top: 90px; height: calc(100% - 140px); } .solo-car { padding: 5px 7px; font-size: 6px; } .car-one { top: 34%; left: 34%; }.car-two { top: 51%; left: 39%; }.car-three { top: 68%; left: 42%; } .map-destination { right: 4%; font-size: 6px; } .map-foot { left: 18px; right: 18px; bottom: 17px; font-size: 7px; } .shared-photo { min-height: 280px; background-position: center; } .turn-benefits { gap: 14px; margin-top: 28px; } }
 @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } .route-one,.route-two,.route-three { stroke-dashoffset: 0; animation: none !important; } .route-dot { opacity: 1; animation: none !important; } }
+
+/* Section 02 — A Community in Motion */
+.community-story{max-width:1800px;margin:0 auto;overflow:clip;background:#fffefa}
+.story-masthead{position:relative;min-height:390px;padding:112px clamp(24px,8vw,128px) 82px;display:grid;grid-template-columns:1.1fr .7fr;align-items:end;gap:5vw}
+.story-masthead .story-index{display:block;margin:0 0 44px;color:#7b8b70;font-size:9px;letter-spacing:.17em;font-weight:700}
+.story-overline{margin:0 0 17px;color:#718166;font-size:9px;letter-spacing:.19em;font-weight:700}
+.story-masthead h2{margin:0;color:#20291f;font:700 clamp(48px,6.4vw,88px)/.98 'Manrope',sans-serif;letter-spacing:-.078em}
+.story-masthead h2 em{color:#78965d;font-style:normal}
+.story-intro{max-width:360px;margin:0 0 8px;color:#72796e;font-size:15px;line-height:1.8}
+.story-progress{position:absolute;right:clamp(24px,8vw,128px);top:112px;display:flex;align-items:center;gap:10px;color:#9aa18f;font-size:8px;letter-spacing:.12em}
+.story-progress i{width:30px;height:1px;background:#d9dfd2}
+.story-sequence{position:relative;padding:0 clamp(24px,8vw,128px) 65px}
+.story-route{position:absolute;z-index:0;left:calc(clamp(24px,8vw,128px) - 48px);top:0;width:90px;height:100%;overflow:visible}
+.story-route-track,.story-route-progress{fill:none;stroke:#dce4d3;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.story-route-progress{stroke:#88a96b;stroke-width:2.5;stroke-dasharray:1600;stroke-dashoffset:calc(1600 * (1 - var(--story-progress,0)));transition:stroke-dashoffset .08s linear}
+.story-chapter{position:relative;z-index:1;min-height:650px;display:grid;grid-template-columns:.78fr 1.22fr;align-items:center;gap:clamp(42px,8vw,128px);padding:70px 0}
+.story-chapter:nth-child(even){grid-template-columns:1.22fr .78fr}
+.story-chapter:nth-child(even) .chapter-visual{order:0}.story-chapter:nth-child(even) .chapter-copy{order:1}
+.chapter-copy{max-width:460px}
+.chapter-number{display:flex;align-items:center;gap:12px;color:#78886e;font-size:9px;letter-spacing:.16em;font-weight:700}
+.chapter-number i{display:inline-block;width:24px;height:1px;background:#9caf88}
+.chapter-copy h3{margin:25px 0 0;color:#20291f;font:700 clamp(42px,4.8vw,68px)/1.02 'Manrope',sans-serif;letter-spacing:-.075em}
+.chapter-copy h3 em{color:#78965d;font-style:normal}
+.chapter-copy p{max-width:370px;margin:22px 0 0;color:#73796e;font-size:15px;line-height:1.85}
+.chapter-note{display:flex;align-items:center;gap:10px;margin-top:36px;color:#84927a;font-size:8px;letter-spacing:.13em;font-weight:700}
+.chapter-note svg{color:#78965d}
+.chapter-visual{position:relative;min-width:0;height:480px;overflow:hidden}
+.community-visual{height:500px;border-radius:2px 100px 2px 2px}
+.story-photo{position:absolute;inset:0;background-size:cover;background-position:center}
+.community-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:center 48%}
+.commute-visual{height:420px;border-radius:100px 2px 2px 2px}
+.commute-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:20% 60%}
+.connection-visual{height:490px;border-radius:2px 2px 100px 2px;background:#e8ecdf}
+.connection-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:70% 45%;filter:saturate(.82)}
+.visual-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;color:white;font-size:8px;letter-spacing:.15em;font-weight:700;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.chapter-visual:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(13,24,15,.4));pointer-events:none}
+.connection-line{position:absolute;z-index:2;left:12%;right:12%;top:54%;height:1px;background:#c4e49c;box-shadow:0 0 16px rgba(190,230,145,.6)}
+.connection-line span{position:absolute;top:50%;width:9px;height:9px;border:2px solid #e8f4d8;border-radius:50%;background:#8bb86b;transform:translateY(-50%)}
+.connection-line span:nth-child(1){left:0}.connection-line span:nth-child(2){left:50%}.connection-line span:nth-child(3){right:0}
+.route-facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:35px}
+.route-facts span{display:flex;align-items:center;gap:8px;color:#718365;font-size:11px}
+.shared-visual{height:550px;border-radius:2px 100px 2px 2px;background:#1d3025}
+.shared-photo-image{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:center 55%}
+.shared-story-copy h3{font-size:clamp(48px,5.2vw,74px)}
+.shared-outcomes{display:flex;flex-direction:column;gap:13px;margin-top:30px}
+.shared-outcomes span{color:#64745a;font-size:12px}
+.shared-outcomes span:before{content:'↗';margin-right:12px;color:#8eae6d}
+.story-cta{display:inline-flex;align-items:center;gap:22px;margin-top:34px;padding:14px 18px;background:#1e3024;color:#fff;text-decoration:none;font-size:11px;font-weight:600;transition:background .2s ease,transform .2s ease}
+.story-cta:hover{background:#48633e;transform:translateY(-2px)}
+.story-ending{display:flex;align-items:center;justify-content:center;gap:26px;padding:30px 24px 110px}
+.story-ending p{margin:0;color:#253126;font:600 clamp(19px,2.4vw,30px)/1.2 'Manrope',sans-serif;letter-spacing:-.05em;text-align:center}
+.story-ending em{color:#78965d;font-style:normal}.ending-line{width:min(12vw,140px);height:1px;background:#d7dfce}
+@media(max-width:900px){.story-masthead{grid-template-columns:1fr;min-height:0;padding:85px 7vw 55px;gap:25px}.story-progress{top:88px;right:7vw}.story-chapter,.story-chapter:nth-child(even){min-height:0;grid-template-columns:1fr;gap:32px;padding:55px 0}.story-chapter:nth-child(even) .chapter-visual,.story-chapter:nth-child(even) .chapter-copy{order:initial}.chapter-copy{max-width:620px}.chapter-copy h3{font-size:clamp(44px,8vw,66px)}.community-visual,.commute-visual,.connection-visual{height:clamp(300px,55vw,480px)}.shared-visual{height:clamp(330px,60vw,500px)}.story-route{left:8px;opacity:.45}}
+@media(max-width:600px){.story-masthead{padding:68px 22px 40px}.story-masthead .story-index{margin-bottom:35px}.story-masthead h2{font-size:clamp(44px,12vw,60px)}.story-intro{font-size:13px}.story-progress{top:72px;gap:6px;font-size:7px}.story-progress i{width:12px}.story-sequence{padding:0 22px 40px 30px}.story-route{left:-7px;width:52px;opacity:.28}.story-chapter,.story-chapter:nth-child(even){gap:25px;padding:42px 0}.chapter-copy h3{font-size:clamp(42px,11vw,56px)}.chapter-copy p{font-size:13px}.community-visual{height:330px;border-top-right-radius:62px}.commute-visual{height:280px;border-top-left-radius:62px}.connection-visual{height:310px;border-bottom-right-radius:62px}.shared-visual{height:320px;border-top-right-radius:62px}.story-ending{padding:25px 20px 70px;gap:12px}.ending-line{width:8vw}}
+@media(prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}.story-route-progress{stroke-dashoffset:0;transition:none}}
