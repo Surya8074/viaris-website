@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './styles/benefits-landscape.css';
 import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
 import ImpactCalculator from './components/ImpactCalculator';
@@ -176,7 +175,6 @@ export default function App() {
         <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
       </section>
       <ViarisFeatureSection />
-      <section className="benefits-landscape" aria-label="A shared journey through the hills" />
       <BenefitsSection />
       <ImpactCalculator />
       <CommunityExchangeSection />
