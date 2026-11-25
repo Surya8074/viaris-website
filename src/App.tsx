@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
 import ImpactCalculator from './components/ImpactCalculator';
+import DownloadAppSection from './components/DownloadAppSection';
 import BenefitsSection from './components/BenefitsSection';
 import CommunityExchangeSection from './components/CommunityExchangeSection';
 import Footer from './components/Footer';
@@ -181,6 +182,7 @@ export default function App() {
       <CommunityExchangeSection />
       <BenefitsSection />
       <ImpactCalculator />
+      <DownloadAppSection />
       <div id="how-it-works" /><div id="get-app" />
       </main>
       <Footer />
