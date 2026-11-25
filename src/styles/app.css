@@ -148,7 +148,7 @@ button, input { font: inherit; }
 .commute-visual{height:420px;border-radius:100px 2px 2px 2px}
 .commute-photo{background-image:url('/viaris-website/images/2nd.png');background-position:20% 60%}
 .connection-visual{height:490px;border-radius:2px 2px 100px 2px;background:#e8ecdf}
-.connection-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:70% 45%;filter:saturate(.82)}
+.connection-photo{background-image:url('/viaris-website/images/3rd.png');background-position:70% 45%;filter:saturate(.82)}
 .visual-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;color:white;font-size:8px;letter-spacing:.15em;font-weight:700;text-shadow:0 1px 10px rgba(0,0,0,.45)}
 .chapter-visual:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(13,24,15,.4));pointer-events:none}
 .connection-line{position:absolute;z-index:2;left:12%;right:12%;top:54%;height:1px;background:#c4e49c;box-shadow:0 0 16px rgba(190,230,145,.6)}
@@ -203,7 +203,7 @@ button, input { font: inherit; }
 .commute-visual{height:390px;border-radius:110px 2px 2px 2px}
 .commute-photo{background-image:url('/viaris-website/images/2nd.png');background-position:18% 70%;filter:saturate(.85)}
 .connection-visual{height:430px;border-radius:2px 2px 110px 2px}
-.connection-photo{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:76% 38%;filter:saturate(.92)}
+.connection-photo{background-image:url('/viaris-website/images/3rd.png');background-position:76% 38%;filter:saturate(.92)}
 .shared-visual{height:460px;border-radius:2px 110px 2px 2px}
 .shared-photo-image{background-image:url('/viaris-website/images/Lakeview%20Residency%20Commute.png');background-position:center 58%}
 .visual-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;color:white;font-size:8px;letter-spacing:.15em;font-weight:700;text-shadow:0 1px 10px rgba(0,0,0,.5)}
