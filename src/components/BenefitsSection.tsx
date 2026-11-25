@@ -1,4 +1,5 @@
 import '../styles/benefits.css';
+import '../styles/benefits-landscape.css';
 
 const benefits = [
   {
@@ -85,6 +86,7 @@ export default function BenefitsSection() {
   return (
     <section className="vb-section" aria-labelledby="vb-title">
       <div className="vb-shell">
+        <div className="benefits-landscape" role="img" aria-label="A golden-hour drive through misty hills" />
         <header className="vb-header">
           <div className="vb-eyebrow"><span aria-hidden="true">✳</span> THE VIARIS DIFFERENCE</div>
           <h2 id="vb-title">Good things happen<br className="vb-title-break" /> when we go together.</h2>
