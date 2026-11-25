@@ -101,20 +101,14 @@ export default function ViarisJourneyViewer() {
   const [activeId, setActiveId] = useState(journeys[0].id);
   const active = journeys.find(item => item.id === activeId) ?? journeys[0];
   return (
-    <section className="vj-section" aria-labelledby="vj-title">
+    <section className="vj-section" aria-label="Explore the ways to travel with Viaris">
       <div className="vj-inner">
-        <header className="vj-heading">
-          <span className="vj-eyebrow">ONE PLATFORM. MANY WAYS TO GO.</span>
-          <h2 id="vj-title">Your journey.<br/><span>Shared your way.</span></h2>
-          <p>From the everyday commute to the next city, Viaris makes it easier to find your people along the way.</p>
-        </header>
-        <div className="vj-viewer">
-          <div className="vj-selector" role="tablist" aria-label="Explore Viaris journeys" aria-orientation="vertical">
-            {journeys.map((item) => {
-              const Icon = item.icon;
-              const selected = item.id === activeId;
-              return (
-                <button key={item.id} className={`vj-option${selected ? ' is-active' : ''}`} type="button" role="tab" aria-selected={selected} aria-controls="vj-panel" id={`vj-tab-${item.id}`} tabIndex={selected ? 0 : -1}
+        <div className="vj-selector" role="tablist" aria-label="Viaris journey options" aria-orientation="vertical">
+          {journeys.map((item) => {
+            const selected = item.id === activeId;
+            return (
+              <div className={`vj-option-wrap${selected ? ' is-active' : ''}`} key={item.id}>
+                <button className="vj-option" type="button" role="tab" aria-selected={selected} aria-expanded={selected} aria-controls="vj-panel" id={`vj-tab-${item.id}`} tabIndex={selected ? 0 : -1}
                   onClick={() => setActiveId(item.id)}
                   onKeyDown={(event) => {
                     const index = journeys.findIndex(entry => entry.id === item.id);
@@ -128,26 +122,16 @@ export default function ViarisJourneyViewer() {
                     setActiveId(journeys[next].id);
                     document.getElementById(`vj-tab-${journeys[next].id}`)?.focus();
                   }}>
-                  <span className="vj-option-icon"><Icon size={20} strokeWidth={1.8}/></span>
-                  <span className="vj-option-copy"><small>{item.marker} / VIARIS</small><strong>{item.title}</strong></span>
-                  <span className="vj-option-plus" aria-hidden="true">{selected ? '−' : '+'}</span>
+                  <span className="vj-option-plus" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="1.25"/><path d={selected ? "M7.5 12h9" : "M12 7.5v9M7.5 12h9"} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg></span>
+                  <span className="vj-option-copy">{item.title}</span>
                 </button>
-              );
-            })}
-            <div className="vj-selector-note"><MapPin size={16}/> Find a ride. Publish a ride.</div>
-          </div>
-          <div className="vj-display" id="vj-panel" role="tabpanel" aria-labelledby={`vj-tab-${active.id}`} tabIndex={0}>
-            <div className="vj-display-copy" key={active.id}>
-              <span>{active.eyebrow}</span>
-              <h3>{active.title}</h3>
-              <p>{active.description}</p>
-              <div className="vj-display-detail"><i />{active.detail}</div>
-              <a href="#how-it-works" className="vj-display-link">See how it works <ArrowUpRight size={17}/></a>
-            </div>
-            <div className="vj-display-visual" key={`scene-${active.id}`}>
-              <JourneyScene active={active.id}/>
-            </div>
-          </div>
+                {selected && <div className="vj-option-description" id={`vj-description-${item.id}`}><p>{item.description}</p><span>{item.detail}</span></div>}
+              </div>
+            );
+          })}
+        </div>
+        <div className="vj-display" id="vj-panel" role="tabpanel" aria-labelledby={`vj-tab-${active.id}`} tabIndex={0}>
+          <div className="vj-display-visual" key={`scene-${active.id}`}><JourneyScene active={active.id}/></div>
         </div>
       </div>
     </section>
