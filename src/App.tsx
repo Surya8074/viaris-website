@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import HeroIntroReveal from './components/HeroIntroReveal';
 import ViarisFeatureSection from './components/ViarisFeatureSection';
 import CommunityExchangeSection from './components/CommunityExchangeSection';
 import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2, Wallet, Fuel } from 'lucide-react';
@@ -122,6 +123,7 @@ export default function App() {
 
       <section className="hero" id="home">
         <div className="hero-photo">
+          <HeroIntroReveal />
           <div className="hero-image" role="img" aria-label="A modern car travelling through a green countryside landscape" />
           <div className="hero-wash" />
           <div className="hero-topline"><span>MOVE TOGETHER</span><span>01 — A NEW WAY TO GO</span></div>
