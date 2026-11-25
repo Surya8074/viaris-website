@@ -470,3 +470,9 @@ button, input { font: inherit; }
 .community-story > .story-sequence > .story-chapter{position:relative!important;z-index:2!important;isolation:isolate!important}
 .community-story .story-chapter .chapter-copy{position:relative!important;z-index:4!important;background:#fffefa!important;isolation:isolate!important}
 .community-story .story-chapter .chapter-visual{position:relative!important;z-index:3!important;isolation:isolate!important}
+
+
+/* Align the road so its upper bend tucks under the community photo, not beside its edge. */
+@media(min-width:901px){.community-story .story-sequence > svg.story-road{transform:translateX(-100px)!important}}
+@media(max-width:900px) and (min-width:601px){.community-story .story-sequence > svg.story-road{transform:translateX(-42px)!important}}
+@media(max-width:600px){.community-story .story-sequence > svg.story-road{transform:none!important}}
