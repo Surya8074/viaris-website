@@ -32,11 +32,12 @@
 }
 .vf-route-stage{
   width:min(100%,1040px);
-  height:clamp(174px,21vw,236px);
-  margin:15px auto -3px;
+  height:236px;
+  margin:15px auto 0;
   position:relative;
+  overflow:hidden;
 }
-.vf-routes{display:block;width:100%;height:100%;overflow:visible}
+.vf-routes{display:block;width:100%;height:100%;overflow:hidden}
 .vf-route{
   fill:none;
   stroke:#8eae76;
