@@ -43,20 +43,23 @@
 .vb-card h3{max-width:250px;margin:0 0 10px;color:#1a2b20;font-family:'Manrope','Inter',sans-serif;font-size:clamp(17px,1.45vw,21px);font-weight:750;line-height:1.22;letter-spacing:-.04em}
 .vb-card p{max-width:270px;margin:0;color:#68736b;font-size:14px;line-height:1.6;letter-spacing:-.005em}
 .vb-banner{
-  position:relative;isolation:isolate;min-height:196px;
-  display:grid;grid-template-columns:minmax(220px,1.1fr) 1px minmax(340px,1.7fr) minmax(210px,1fr);
-  align-items:center;gap:clamp(18px,2.2vw,34px);
-  padding:28px clamp(24px,3vw,44px);overflow:hidden;border:1px solid #e5eee1;
-  border-radius:26px;background:linear-gradient(105deg,#f1f8ee 0%,#f5f9f1 62%,#edf6e9 100%)
+  position:relative;isolation:isolate;min-height:260px;
+  display:grid;grid-template-columns:minmax(260px,1.12fr) 1px minmax(430px,1.9fr) minmax(260px,1.15fr);
+  align-items:center;gap:clamp(22px,2.6vw,38px);
+  padding:36px clamp(30px,3.35vw,50px);overflow:hidden;
+  border:1px solid #e4eddf;border-radius:30px;
+  background:linear-gradient(108deg,#f1f8ee 0%,#f4f8f0 55%,#edf6e9 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72)
 }
-.vb-banner-message{position:relative;z-index:2}
-.vb-banner-kicker{display:block;margin-bottom:10px;color:#5b8b61;font-size:9px;font-weight:800;letter-spacing:.16em;line-height:1.2}
-.vb-banner h3{margin:0;color:#185b32;font-family:'Manrope','Inter',sans-serif;font-size:clamp(19px,1.7vw,25px);font-weight:750;line-height:1.24;letter-spacing:-.04em}
-.vb-divider{position:relative;z-index:2;width:1px;height:76px;background:#d2e2ce}
-.vb-proof{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.7vw,25px);min-width:0}
-.vb-proof-item{display:flex;align-items:center;gap:10px;color:#536459;font-size:12px;font-weight:550;line-height:1.4}
-.vb-proof-item svg{width:37px;height:37px;flex:0 0 37px;color:#32944a}
-.vb-community-art{position:relative;z-index:1;align-self:end;justify-self:stretch;display:block;width:100%;max-width:100%;min-width:0;height:145px;object-fit:cover;object-position:100% 50%;pointer-events:none}
+.vb-banner-message{position:relative;z-index:2;max-width:340px}
+.vb-banner-kicker{display:block;margin-bottom:13px;color:#5b8b61;font-size:10px;font-weight:800;letter-spacing:.17em;line-height:1.2}
+.vb-banner h3{margin:0;color:#185b32;font-family:'Manrope','Inter',sans-serif;font-size:clamp(24px,2.05vw,30px);font-weight:750;line-height:1.18;letter-spacing:-.045em}
+.vb-divider{position:relative;z-index:2;width:1px;height:100px;background:#d2e2ce}
+.vb-proof{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.7vw,26px);min-width:0}
+.vb-proof-item{display:flex;align-items:center;gap:12px;color:#536459;font-size:14px;font-weight:550;line-height:1.45}
+.vb-proof-item svg{width:42px;height:42px;flex:0 0 42px;color:#32944a}
+.vb-community-art{position:relative;z-index:1;align-self:stretch;justify-self:stretch;display:flex;align-items:flex-end;min-width:0;height:100%;overflow:hidden;pointer-events:none}
+.vb-community-art svg{display:block;width:100%;height:100%;min-height:175px}
 @media(max-width:1120px){
   .vb-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   .vb-card{min-height:315px}
@@ -81,13 +84,13 @@
   .vb-card-index{font-size:8px;margin-bottom:8px}
   .vb-card h3{font-size:15px;line-height:1.25;margin-bottom:7px}
   .vb-card p{font-size:12px;line-height:1.5}
-  .vb-banner{grid-template-columns:1fr;gap:15px;min-height:0;padding:22px 20px 116px;border-radius:20px}
+  .vb-banner{grid-template-columns:1fr;gap:15px;min-height:0;padding:24px 20px 132px;border-radius:22px}
   .vb-banner-kicker{font-size:8px;margin-bottom:8px}
-  .vb-banner h3{font-size:20px}
+  .vb-banner h3{font-size:22px}
   .vb-divider{width:100%;height:1px}
   .vb-proof{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-  .vb-proof-item{flex-direction:column;align-items:flex-start;gap:6px;font-size:10px;line-height:1.35}
-  .vb-proof-item svg{width:27px;height:27px;flex-basis:27px}
+  .vb-proof-item{flex-direction:column;align-items:flex-start;gap:7px;font-size:11px;line-height:1.35}
+  .vb-proof-item svg{width:30px;height:30px;flex-basis:30px}
   .vb-community-art{position:absolute;right:0;bottom:0;width:100%;height:105px;opacity:1;object-fit:cover;object-position:right center}
 }
 @media(max-width:390px){
@@ -112,6 +115,6 @@
   .vb-community-art svg{min-height:0}
 }
 @media(max-width:700px){
-  .vb-community-art{position:absolute;right:0;bottom:0;width:100%;height:116px;opacity:1}
+  .vb-community-art{position:absolute;right:0;bottom:0;width:100%;height:126px;opacity:1}
   .vb-community-art svg{min-height:0}
 }
