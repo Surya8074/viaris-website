@@ -424,3 +424,24 @@ button, input { font: inherit; }
 /* SVG motion aligns the vehicle's nose with the road tangent; SMIL controls merge visibility */
 .story-sequence .road-vehicle-single{opacity:1}
 .story-sequence .road-vehicle{opacity:1}
+
+/* Restore the road to its previous proportion; keep the roadway detail and animation */
+.story-sequence .road-shadow{stroke-width:82}
+.story-sequence .road-shoulder{stroke-width:76}
+.story-sequence .road-asphalt{stroke-width:66}
+.ending-road .road-shoulder{stroke-width:76}
+.ending-road .road-asphalt{stroke-width:66}
+@media(max-width:900px){
+ .story-sequence .road-shadow{stroke-width:72}
+ .story-sequence .road-shoulder{stroke-width:66}
+ .story-sequence .road-asphalt{stroke-width:56}
+ .ending-road .road-shoulder{stroke-width:66}
+ .ending-road .road-asphalt{stroke-width:56}
+}
+@media(max-width:600px){
+ .story-sequence .road-shadow{stroke-width:54}
+ .story-sequence .road-shoulder{stroke-width:48}
+ .story-sequence .road-asphalt{stroke-width:40}
+ .ending-road .road-shoulder{stroke-width:48}
+ .ending-road .road-asphalt{stroke-width:40}
+}
