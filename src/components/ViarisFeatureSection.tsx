@@ -45,7 +45,7 @@ function BrandMark() {
   </div>;
 }
 
-function MovingCar({ pathId, delay = 0 }) {
+function MovingCar({ pathId, delay = 0 }: { pathId: string; delay?: number }) {
   return <g className="vf-journey-car">
     <g transform="translate(-12 -7)">
       <path d="M2 9 L4.5 4.5 Q5.5 3 8 3 H16 Q18 3 19.5 5 L22 9 V13 H2Z" fill="#fbfcf8" stroke="#07583d" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -72,7 +72,9 @@ function JourneyMap() {
   </svg>;
 }
 
-function FeatureBranch({ feature }) {
+type FeatureItem = (typeof FEATURE_DATA)[number];
+
+function FeatureBranch({ feature }: { feature: FeatureItem }) {
   const Icon = feature.icon;
   return <article className={`vf-feature-branch vf-feature-branch--${feature.id}`}>
     <div className="vf-feature-branch__art"><img src={feature.image} alt="" loading="eager"/></div>
