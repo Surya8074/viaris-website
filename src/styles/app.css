@@ -446,3 +446,9 @@ button, input { font: inherit; }
 .story-sequence > article.story-chapter > .chapter-visual:before{z-index:1!important}
 .story-sequence > article.story-chapter > .chapter-visual:after{z-index:2!important}
 .story-sequence > article.story-chapter > .chapter-visual > .visual-caption{z-index:3!important}
+
+
+/* Shift the route into the photo's right edge so the image visibly masks it. */
+@media(min-width:901px){.story-sequence > svg.story-road{transform:translateX(-112px)!important}}
+@media(max-width:900px) and (min-width:601px){.story-sequence > svg.story-road{transform:translateX(-54px)!important}}
+@media(max-width:600px){.story-sequence > svg.story-road{transform:translateX(0)!important}}
