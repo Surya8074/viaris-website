@@ -13,7 +13,7 @@ const FEATURES = [
     description: 'Share the road between cities. Find a seat, split the fuel and make the distance feel shorter.',
     image: '/viaris-website/assets/intercity-scene.svg',
     icon: Route,
-    path: 'M410 0 C365 42 238 28 151 63 C91 87 68 145 59 218'
+    path: 'M410 54 C410 76 390 84 365 84 H188 C148 84 119 108 103 146 L75 218'
   },
   {
     id: 'daily-commute',
@@ -21,7 +21,7 @@ const FEATURES = [
     description: 'Find people heading your way to work, college or business — once, or on the same weekdays.',
     image: '/viaris-website/assets/commute-scene.svg',
     icon: CalendarDays,
-    path: 'M410 0 C397 55 424 139 410 218'
+    path: 'M410 54 C410 94 410 158 410 218'
   },
   {
     id: 'communities',
@@ -29,7 +29,7 @@ const FEATURES = [
     description: 'Connect with people around the places you share — your neighbourhood, gym, park or school.',
     image: '/viaris-website/assets/communities-scene.svg',
     icon: Users,
-    path: 'M410 0 C478 35 612 42 693 76 C742 102 753 157 761 218'
+    path: 'M410 54 C410 76 430 84 455 84 H632 C672 84 701 108 717 146 L745 218'
   }
 ];
 
