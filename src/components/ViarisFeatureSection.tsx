@@ -13,7 +13,7 @@ const FEATURES = [
     description: 'Share the road between cities. Find a seat, split the fuel and make the distance feel shorter.',
     image: '/viaris-website/assets/intercity-scene.svg',
     icon: Route,
-    path: 'M410 54 C400 78 359 84 316 88 C238 96 160 88 116 127 C91 149 80 181 75 218'
+    path: 'M410 54 C390 76 340 82 300 88 C220 100 174 94 136 126 C112 146 104 190 136 236'
   },
   {
     id: 'daily-commute',
@@ -21,7 +21,7 @@ const FEATURES = [
     description: 'Find people heading your way to work, college or business — once, or on the same weekdays.',
     image: '/viaris-website/assets/commute-scene.svg',
     icon: CalendarDays,
-    path: 'M410 54 C410 94 410 158 410 218'
+    path: 'M410 54 C410 104 410 174 410 236'
   },
   {
     id: 'communities',
@@ -29,7 +29,7 @@ const FEATURES = [
     description: 'Connect with people around the places you share — your neighbourhood, gym, park or school.',
     image: '/viaris-website/assets/communities-scene.svg',
     icon: Users,
-    path: 'M410 54 C420 78 461 84 504 88 C582 96 660 88 704 127 C729 149 740 181 745 218'
+    path: 'M410 54 C430 76 480 82 520 88 C600 100 646 94 684 126 C708 146 716 190 684 236'
   }
 ];
 
@@ -68,7 +68,7 @@ function Feature({ feature }: { feature: (typeof FEATURES)[number] }) {
     </div>
     <div className="vf-feature__copy">
       <div className="vf-feature__title">
-        <span className="vf-feature__icon"><Icon size={17} strokeWidth={1.65}/></span>
+        <span className="vf-feature__icon"><Icon size={17} strokeWidth={1.65}/></span>\n        <span className="vf-feature__green-square" aria-hidden="true"/>
         <h3>{feature.title}</h3>
       </div>
       <p>{feature.description}</p>
