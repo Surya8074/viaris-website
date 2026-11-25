@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2 } from 'lucide-react';
+import { ArrowUpRight, Menu, MapPin, CarFront, Users, Building2, Wallet, Fuel } from 'lucide-react';
 
 export default function App() {
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function App() {
             <g className="road-vehicle-single"><ellipse cx="0" cy="3" rx="25" ry="44" fill="#17231c" opacity=".22"/><rect x="-19" y="-45" width="38" height="90" rx="13" fill="#b6d987" stroke="#24362a" strokeWidth="2"/><path d="M-14 -23 Q0 -33 14 -23 L14 -2 L-14 -2Z" fill="#52695c"/><path d="M-14 9 L14 9 L14 27 Q0 34 -14 27Z" fill="#52695c"/><rect x="-15" y="-39" width="7" height="5" rx="2" fill="#fff5d4"/><rect x="8" y="-39" width="7" height="5" rx="2" fill="#fff5d4"/><rect x="-15" y="34" width="7" height="5" rx="2" fill="#dc7864"/><rect x="8" y="34" width="7" height="5" rx="2" fill="#dc7864"/></g>
           </svg>
           <article className="story-chapter chapter-community" data-chapter="0">
-            <div className="chapter-copy" data-reveal><span className="chapter-number">01 <i/> THE PLACE WE SHARE</span><h3>A hundred people.<br/><em>One community.</em></h3><p>Different routines. Similar goals. A shared place to call home.</p><span className="chapter-note"><Building2 size={15}/> LAKEVIEW RESIDENCY · 7:45 AM</span></div>
+            <div className="chapter-copy" data-reveal><span className="chapter-number">01 <i/> THE PLACE WE SHARE</span><h3>A hundred people.<br/><em>One community.</em></h3><p>Different routines. Similar goals. A shared place to call home.</p><div className="story-tags"><span><Building2 size={17}/> Shared neighbourhood</span><span><Users size={17}/> Familiar faces</span></div></div>
             <div className="chapter-visual community-visual" data-reveal><div className="story-photo community-photo" role="img" aria-label="A modern residential community in the morning"/><span className="visual-caption">THE DAY BEGINS HERE <b>↗</b></span></div>
           </article>
           <article className="story-chapter chapter-separate" data-chapter="1">
@@ -116,12 +116,12 @@ export default function App() {
             <div className="chapter-copy" data-reveal><span className="chapter-number">02 <i/> THE DAILY ROUTINE</span><h3>Every morning,<br/>we leave <em>separately.</em></h3><p>Different cars. Different journeys. Often heading to the very same workplace.</p><div className="route-facts"><span><CarFront size={17}/> One car at a time</span><span><MapPin size={17}/> Same direction</span></div></div>
           </article>
           <article className="story-chapter chapter-connection" data-chapter="2">
-            <div className="chapter-copy" data-reveal><span className="chapter-number">03 <i/> THE LITTLE DISCOVERY</span><h3>What if your neighbour was <em>going your way?</em></h3><p>Someone just a few doors away could be heading to the same destination.</p><span className="chapter-note"><Users size={15}/> TWO ROUTINES. ONE SHARED DIRECTION.</span></div>
+            <div className="chapter-copy" data-reveal><span className="chapter-number">03 <i/> THE LITTLE DISCOVERY</span><h3>What if your neighbour was <em>going your way?</em></h3><p>Someone just a few doors away could be heading to the same destination.</p><div className="story-tags"><span><MapPin size={17}/> Same destination</span><span><Users size={17}/> Just a few doors away</span></div></div>
             <div className="chapter-visual connection-visual" data-reveal><div className="story-photo connection-photo" role="img" aria-label="Two neighbours meeting beside a car"/><span className="visual-caption">A FAMILIAR FACE. A NEW CONNECTION.</span></div>
           </article>
           <article className="story-chapter story-final" data-chapter="3">
             <div className="chapter-visual shared-visual" data-reveal><div className="story-photo shared-photo-image" role="img" aria-label="Two neighbours sharing a car journey together"/><span className="visual-caption">ONE CAR · ONE SHARED JOURNEY</span></div>
-            <div className="chapter-copy shared-story-copy" data-reveal><span className="chapter-number">04 <i/> THE VIARIS WAY</span><h3>Many journeys.<br/><em>One shared ride.</em></h3><p>Share the journey, split the cost and get to know the people going your way.</p><div className="shared-outcomes"><span>Share the fuel cost</span><span>Make empty seats count</span><span>Meet your neighbours</span></div><a className="story-cta" href="#how-it-works">See how Viaris works <ArrowUpRight size={16}/></a></div>
+            <div className="chapter-copy shared-story-copy" data-reveal><span className="chapter-number">04 <i/> THE VIARIS WAY</span><h3>Many journeys.<br/><em>One shared ride.</em></h3><p>Share the journey, split the cost and get to know the people going your way.</p><div className="shared-outcomes"><span><Fuel size={18}/> Share the fuel cost</span><span><Wallet size={18}/> Split the ride fairly</span><span><Users size={18}/> Meet your neighbours</span></div><a className="story-cta" href="#how-it-works">See how Viaris works <ArrowUpRight size={16}/></a></div>
           </article>
         </div>
         <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
