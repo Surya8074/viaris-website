@@ -61,55 +61,92 @@
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   column-gap:22px;
-  align-items:start;
+  align-items:stretch;
 }
 .vf-feature{
-  position:relative;min-width:0;min-height:100%;
-  padding:22px 22px 24px;
-  background:transparent;
-  border:1px solid #8ab86a;
-  border-radius:12px;
-  box-shadow:none;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:100%;
+  padding:20px 20px 0;
+  overflow:hidden;
+  background:linear-gradient(155deg,#fff 0%,#fffefa 68%,#f8fbf3 100%);
+  border:1px solid rgba(133,169,105,.18);
+  border-radius:27px;
+  box-shadow:0 12px 34px rgba(37,58,42,.075),0 2px 7px rgba(37,58,42,.035);
 }
 .vf-feature::before{
-  content:"";position:absolute;left:50%;top:-1px;width:1px;height:1px;
-  background:#8eae76;
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:1px;
+  height:0;
+  background:var(--vf-route);
 }
-.vf-feature__illustration{
-  height:clamp(126px,15vw,176px);
-  display:flex;
+.vf-feature__copy{
+  width:100%;
+  margin:0;
+  padding:0 0 18px;
+}
+.vf-feature__title{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr) 52px;
+  align-items:center;
+  gap:14px;
+}
+.vf-feature__icon{
+  display:inline-flex;
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
   align-items:center;
   justify-content:center;
-  margin:0 0 18px;
+  color:#2e6b22;
+  background:linear-gradient(145deg,#f1f7e9,#eaf3df);
+  border-radius:23px;
+}
+.vf-feature h3{
+  margin:0;
+  color:#172235;
+  font-size:clamp(18px,1.65vw,23px);
+  line-height:1.15;
+  font-weight:700;
+  letter-spacing:-.045em;
+}
+.vf-feature__arrow{
+  display:inline-flex;
+  width:52px;
+  height:52px;
+  align-items:center;
+  justify-content:center;
+  color:#367b25;
+  background:linear-gradient(145deg,#f3f8eb,#e8f2d9);
+  border-radius:50%;
+}
+.vf-feature p{
+  max-width:none;
+  margin:5px 4px 0 78px;
+  color:#344154;
+  font-size:13px;
+  line-height:1.55;
+}
+.vf-feature__illustration{
+  width:calc(100% + 40px);
+  height:clamp(150px,15vw,190px);
+  display:block;
+  margin:auto -20px 0;
+  overflow:hidden;
+  border-radius:0 0 26px 26px;
+  background:#f2f5eb;
 }
 .vf-feature__illustration img{
   display:block;
   width:100%;
   height:100%;
-  object-fit:contain;
-}
-.vf-feature__copy{max-width:310px;margin:0 auto}
-.vf-feature__title{display:flex;align-items:center;gap:10px}
-.vf-feature__icon{
-  display:inline-flex;
-  width:27px;height:27px;flex:0 0 27px;
-  align-items:center;justify-content:center;
-  color:#557b4d;
-}
-.vf-feature h3{
-  margin:0;
-  color:#24382c;
-  font-size:clamp(19px,1.8vw,23px);
-  line-height:1.2;
-  font-weight:650;
-  letter-spacing:-.045em;
-}
-.vf-feature p{
-  max-width:285px;
-  margin:10px 0 0 37px;
-  color:var(--vf-muted);
-  font-size:13px;
-  line-height:1.72;
+  object-fit:cover;
+  object-position:center;
 }
 @media(max-width:760px){
   .viaris-feature-section{padding:58px 22px 76px}
@@ -117,17 +154,21 @@
   .vf-kicker{font-size:8px;letter-spacing:.2em}
   .vf-route-stage{height:142px;margin:18px auto 0}
   .vf-features{grid-template-columns:1fr;row-gap:30px}
-  .vf-feature{display:grid;grid-template-columns:minmax(130px,38%) minmax(0,1fr);gap:20px;align-items:center}
-  .vf-feature__illustration{height:116px;margin:0}
-  .vf-feature__copy{margin:0}
+  .vf-feature{padding:18px 18px 0;border-radius:24px}
+  .vf-feature__title{grid-template-columns:56px minmax(0,1fr) 46px;gap:12px}
+  .vf-feature__icon{width:56px;height:56px;border-radius:19px}
+  .vf-feature__arrow{width:46px;height:46px}
+  .vf-feature__illustration{height:170px;width:calc(100% + 36px);margin:auto -18px 0;border-radius:0 0 23px 23px}
   .vf-feature h3{font-size:19px}
-  .vf-feature p{font-size:12px;line-height:1.65;margin:8px 0 0 37px}
+  .vf-feature p{font-size:12px;line-height:1.6;margin:7px 0 0 68px}
 }
 @media(max-width:440px){
   .vf-route-stage{height:112px}
-  .vf-feature{grid-template-columns:1fr;gap:5px}
-  .vf-feature__illustration{height:142px}
-  .vf-feature__copy{padding:0 3px}
+  .vf-feature__illustration{height:150px}
+  .vf-feature__copy{padding:0 0 15px}
+  .vf-feature__title{grid-template-columns:52px minmax(0,1fr) 42px;gap:10px}
+  .vf-feature__icon{width:52px;height:52px}
+  .vf-feature__arrow{width:42px;height:42px}
 }
 @media(prefers-reduced-motion:reduce){
   .vf-car{display:none}

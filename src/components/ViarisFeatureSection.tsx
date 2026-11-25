@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CalendarDays, Users, Route } from 'lucide-react';
+import { CalendarDays, Users, Route, ArrowRight } from 'lucide-react';
 import '../styles/viaris-features.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,16 +64,16 @@ function RouteBranches() {
 function Feature({ feature }: { feature: (typeof FEATURES)[number] }) {
   const Icon = feature.icon;
   return <article className={`vf-feature vf-feature--${feature.id}`}>
-    <div className="vf-feature__illustration">
-      <img src={feature.image} alt="" loading="lazy"/>
-    </div>
     <div className="vf-feature__copy">
       <div className="vf-feature__title">
-        <span className="vf-feature__icon"><Icon size={17} strokeWidth={1.65}/></span>
-        <span className="vf-feature__green-square" aria-hidden="true"/>
+        <span className="vf-feature__icon"><Icon size={27} strokeWidth={2}/></span>
         <h3>{feature.title}</h3>
+        <span className="vf-feature__arrow" aria-hidden="true"><ArrowRight size={23} strokeWidth={1.9}/></span>
       </div>
       <p>{feature.description}</p>
+    </div>
+    <div className="vf-feature__illustration">
+      <img src={feature.image} alt="" loading="lazy"/>
     </div>
   </article>;
 }
