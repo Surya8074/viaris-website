@@ -394,7 +394,7 @@ button, input { font: inherit; }
 .story-sequence .road-center{stroke:#f4f0e2;stroke-width:4.5;stroke-dasharray:32 34;opacity:.95}
 .story-sequence .road-motion-path{stroke:#b9e987;stroke-width:3.2;stroke-dasharray:2 38;opacity:.78;filter:drop-shadow(0 0 4px rgba(185,233,135,.55))}
 .story-sequence .road-vehicle,.story-sequence .road-vehicle-single{opacity:1;filter:drop-shadow(0 6px 7px rgba(10,18,12,.48))}
-.story-sequence .road-vehicle-single{opacity:0}
+.story-sequence .road-vehicle-single{opacity:1}
 .story-sequence .road-vehicle-single animate{opacity:1}
 .story-sequence .chapter-copy{background:transparent!important}
 .story-ending{background:transparent!important;position:relative;isolation:isolate;overflow:visible;z-index:4;min-height:150px}
@@ -420,3 +420,7 @@ button, input { font: inherit; }
  .ending-road .road-shoulder{stroke-width:82}.ending-road .road-asphalt{stroke-width:70}
  .story-ending p{font-size:clamp(15px,4vw,21px)}
 }
+
+/* SVG motion aligns the vehicle's nose with the road tangent; SMIL controls merge visibility */
+.story-sequence .road-vehicle-single{opacity:1}
+.story-sequence .road-vehicle{opacity:1}
