@@ -11,7 +11,7 @@ export default function App() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.12 });
     items.forEach((item) => observer.observe(item));
     const story = document.querySelector<HTMLElement>('.community-story');
     const updateProgress = () => {
@@ -21,9 +21,12 @@ export default function App() {
       const progress = Math.min(1, Math.max(0, -rect.top / travel));
       story.style.setProperty('--story-progress', String(progress));
       const active = Math.min(3, Math.floor(progress * 4));
-      story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => {
-        chapter.classList.toggle('chapter-active', index === active);
-      });
+      story.querySelectorAll<HTMLElement>('[data-chapter]').forEach((chapter, index) => chapter.classList.toggle('chapter-active', index === active));
+      const convoy = story.querySelector<HTMLElement>('.route-convoy');
+      if (convoy) {
+        convoy.style.setProperty('--convoy-y', `${Math.min(94, 5 + progress * 88)}%`);
+        convoy.classList.toggle('convoy-merged', progress > 0.78);
+      }
     };
     updateProgress();
     window.addEventListener('scroll', updateProgress, { passive: true });
@@ -70,27 +73,28 @@ export default function App() {
 
       <section className="community-story" id="experiences" aria-labelledby="community-story-title">
         <div className="story-masthead">
-          <div><span className="story-index">02 / THE EVERYDAY COMMUTE</span><p className="story-overline">A COMMUNITY IN MOTION</p><h2 id="community-story-title">A hundred people.<br /><em>One community.</em></h2></div>
-          <p className="story-intro">Look a little closer. Some of the people leaving your community are already going your way.</p>
+          <div><span className="story-index">02 / THE EVERYDAY COMMUTE</span><p className="story-overline">A COMMUNITY IN MOTION</p><h2 id="community-story-title">A hundred people.<br/><em>One community.</em></h2></div>
+          <p className="story-intro">Every morning, people from the same community head in the same direction — without knowing it.</p>
           <div className="story-progress"><span>01</span><i/><span>02</span><i/><span>03</span><i/><span>04</span></div>
         </div>
         <div className="story-sequence">
-          <svg className="story-route" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true"><path className="story-route-track" d="M60 0 C60 100 18 120 60 220 S104 330 60 440 S16 570 60 680 S105 810 60 920 S18 1060 60 1200"/><path className="story-route-progress" d="M60 0 C60 100 18 120 60 220 S104 330 60 440 S16 570 60 680 S105 810 60 920 S18 1060 60 1200"/></svg>
-          <article className="story-chapter" data-chapter="0">
+          <div className="route-convoy" aria-hidden="true"><span className="convoy-car car-a">🚗</span><span className="convoy-car car-b">🚙</span><span className="convoy-car car-c">🚕</span><span className="convoy-single">🚘</span></div>
+          <svg className="story-route" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path className="story-route-track" d="M50 0 C50 130 50 130 50 250 S50 370 50 500 S50 630 50 750 S50 870 50 1000"/><path className="story-route-progress" d="M50 0 C50 130 50 130 50 250 S50 370 50 500 S50 630 50 750 S50 870 50 1000"/></svg>
+          <article className="story-chapter chapter-community" data-chapter="0">
             <div className="chapter-copy" data-reveal><span className="chapter-number">01 <i/> THE PLACE WE SHARE</span><h3>A hundred people.<br/><em>One community.</em></h3><p>Different routines. Similar goals. A shared place to call home.</p><span className="chapter-note"><Building2 size={15}/> LAKEVIEW RESIDENCY · 7:45 AM</span></div>
-            <div className="chapter-visual community-visual" data-reveal><div className="story-photo community-photo" role="img" aria-label="Morning activity at a modern apartment community"/><span className="visual-caption">THE DAY BEGINS HERE <b>↗</b></span></div>
+            <div className="chapter-visual community-visual" data-reveal><div className="story-photo community-photo" role="img" aria-label="A modern residential community in the morning"/><span className="visual-caption">THE DAY BEGINS HERE <b>↗</b></span></div>
           </article>
-          <article className="story-chapter" data-chapter="1">
-            <div className="chapter-visual commute-visual" data-reveal><div className="story-photo commute-photo" role="img" aria-label="A car leaving a residential community in the morning"/><span className="visual-caption">MONDAY · 8:05 AM <b>01 CAR / 01 PERSON</b></span></div>
+          <article className="story-chapter chapter-separate" data-chapter="1">
+            <div className="chapter-visual commute-visual" data-reveal><div className="story-photo commute-photo" role="img" aria-label="Cars leaving a residential community separately"/><span className="visual-caption">MONDAY · 8:05 AM <b>SEPARATE CARS / SAME DIRECTION</b></span></div>
             <div className="chapter-copy" data-reveal><span className="chapter-number">02 <i/> THE DAILY ROUTINE</span><h3>Every morning,<br/>we leave <em>separately.</em></h3><p>Different cars. Different journeys. Often heading to the very same workplace.</p><div className="route-facts"><span><CarFront size={17}/> One car at a time</span><span><MapPin size={17}/> Same direction</span></div></div>
           </article>
-          <article className="story-chapter" data-chapter="2">
-            <div className="chapter-copy" data-reveal><span className="chapter-number">03 <i/> THE LITTLE DISCOVERY</span><h3>But what if your neighbour was <em>going your way?</em></h3><p>Someone just a few doors away could be heading to the same destination.</p><span className="chapter-note"><Users size={15}/> TWO ROUTINES. ONE SHARED DIRECTION.</span></div>
-            <div className="chapter-visual connection-visual" data-reveal><div className="story-photo connection-photo" role="img" aria-label="Neighbours meeting beside a car outside their apartment community"/><div className="connection-line"><span/><span/><span/></div><span className="visual-caption">A FAMILIAR FACE. A NEW CONNECTION.</span></div>
+          <article className="story-chapter chapter-connection" data-chapter="2">
+            <div className="chapter-copy" data-reveal><span className="chapter-number">03 <i/> THE LITTLE DISCOVERY</span><h3>What if your neighbour was <em>going your way?</em></h3><p>Someone just a few doors away could be heading to the same destination.</p><span className="chapter-note"><Users size={15}/> TWO ROUTINES. ONE SHARED DIRECTION.</span></div>
+            <div className="chapter-visual connection-visual" data-reveal><div className="story-photo connection-photo" role="img" aria-label="Two neighbours meeting beside a car"/><span className="visual-caption">A FAMILIAR FACE. A NEW CONNECTION.</span></div>
           </article>
           <article className="story-chapter story-final" data-chapter="3">
-            <div className="chapter-visual shared-visual" data-reveal><div className="story-photo shared-photo-image" role="img" aria-label="Neighbours sharing a car journey together"/><span className="visual-caption">ONE CAR · ONE SHARED JOURNEY</span></div>
-            <div className="chapter-copy shared-story-copy" data-reveal><span className="chapter-number">04 <i/> THE VIARIS WAY</span><h3>One ride.<br/><em>Less spent.</em><br/>More connected.</h3><p>Share the journey, split the cost and get to know the people going your way.</p><div className="shared-outcomes"><span>Share the fuel cost</span><span>Make empty seats count</span><span>Meet your neighbours</span></div><a className="story-cta" href="#how-it-works">See how Viaris works <ArrowUpRight size={16}/></a></div>
+            <div className="chapter-visual shared-visual" data-reveal><div className="story-photo shared-photo-image" role="img" aria-label="Two neighbours sharing a car journey together"/><span className="visual-caption">ONE CAR · ONE SHARED JOURNEY</span></div>
+            <div className="chapter-copy shared-story-copy" data-reveal><span className="chapter-number">04 <i/> THE VIARIS WAY</span><h3>Many journeys.<br/><em>One shared ride.</em></h3><p>Share the journey, split the cost and get to know the people going your way.</p><div className="shared-outcomes"><span>Share the fuel cost</span><span>Make empty seats count</span><span>Meet your neighbours</span></div><a className="story-cta" href="#how-it-works">See how Viaris works <ArrowUpRight size={16}/></a></div>
           </article>
         </div>
         <div className="story-ending"><span className="ending-line"/><p>Same roads. <em>Different people.</em> One journey.</p><span className="ending-line"/></div>
