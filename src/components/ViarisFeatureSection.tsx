@@ -68,7 +68,8 @@ function Feature({ feature }: { feature: (typeof FEATURES)[number] }) {
     </div>
     <div className="vf-feature__copy">
       <div className="vf-feature__title">
-        <span className="vf-feature__icon"><Icon size={17} strokeWidth={1.65}/></span>\n        <span className="vf-feature__green-square" aria-hidden="true"/>
+        <span className="vf-feature__icon"><Icon size={17} strokeWidth={1.65}/></span>
+        <span className="vf-feature__green-square" aria-hidden="true"/>
         <h3>{feature.title}</h3>
       </div>
       <p>{feature.description}</p>
