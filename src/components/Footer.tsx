@@ -11,7 +11,7 @@ const groups = [
   { title: 'Company', links: [
     { label: 'About Viaris', href: '#home' },
     { label: 'Careers', href: '#get-app' },
-    { label: 'Contact us', href: 'mailto:hello@viarisride.com' },
+    { label: 'Contact us', href: '#get-app' },
   ]},
   { title: 'Support', links: [
     { label: 'Help centre', href: '#get-app' },
@@ -68,9 +68,9 @@ export default function Footer() {
           <a href="#community-guidelines">Community guidelines</a>
         </nav>
         <div className="vr-footer__social" aria-label="Social media">
-          <a href="#instagram" aria-label="Instagram"><Instagram size={19}/></a>
-          <a href="#linkedin" aria-label="LinkedIn"><Linkedin size={19}/></a>
-          <a href="#youtube" aria-label="YouTube"><Youtube size={20}/></a>
+          <span aria-hidden="true"><Instagram size={19}/></span>
+          <span aria-hidden="true"><Linkedin size={19}/></span>
+          <span aria-hidden="true"><Youtube size={20}/></span>
         </div>
       </div>
     </footer>
