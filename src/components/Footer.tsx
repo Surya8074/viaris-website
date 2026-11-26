@@ -25,8 +25,7 @@ export default function Footer() {
     <footer className="vr-footer" aria-label="Viaris Ride footer">
       <div className="vr-footer__inner">
         <a className="vr-footer__brand" href="#home" aria-label="Viaris home">
-          <span className="vr-footer__mark" aria-hidden="true"><svg viewBox="0 0 42 36"><path d="M3 3h10l8 17L31 3h9L24 32h-7L3 3Z" fill="currentColor"/></svg></span>
-          <span>viaris<span className="vr-footer__brand-dot">.</span></span>
+          <img className="vr-footer__logo" src="/viaris-website/images/logo.jpeg" alt="Viaris Ride" />
         </a>
 
         <div className="vr-footer__main">
