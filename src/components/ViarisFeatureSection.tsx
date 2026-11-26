@@ -107,7 +107,7 @@ export default function ViarisFeatureSection() {
   return <section className="viaris-feature-section" id="viaris-features" ref={sectionRef} aria-labelledby="viaris-feature-heading">
     <div className="viaris-feature-section__inner">
       <header className="vf-header">
-        <div className="vf-wordmark" ref={brandRef} aria-label="Viaris Ride">Viaris ride</div>
+        <div className="vf-wordmark" ref={brandRef} aria-label="Viaris Ride">Viaris <span>ride</span></div>
         <p id="viaris-feature-heading" className="vf-kicker">COMMUNITY CARPOOLING PLATFORM</p>
       </header>
       <div className="vf-route-stage"><RouteBranches/></div>
