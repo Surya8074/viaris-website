@@ -19,7 +19,7 @@ export default function CommunityRegistration() {
       <div className="community-registration__inner">
         <div className="community-registration__intro">
           <span className="community-registration__eyebrow"><i /> COMMUNITY PARTNERSHIPS</span>
-          <h2 id="community-registration-title">Bring Viaris to <em>your community.</em></h2>
+          <h2 id="community-registration-title">Bring Viaris <em>Ride</em> to your community.</h2>
           <p>Better journeys begin close to home. Tell us a little about your community and let’s explore what travelling together could look like.</p>
           <div className="community-registration__footnote">
             <span>01</span>
