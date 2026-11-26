@@ -1,5 +1,5 @@
-.community-registration{width:100%;padding:clamp(64px,8vw,112px) clamp(22px,7vw,104px) clamp(76px,9vw,120px);background:#f5f6f1;color:#203329}
-.community-registration__inner{width:min(100%,1240px);margin:0 auto;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(48px,8vw,120px);align-items:start}
+.community-registration{width:100%;padding:clamp(42px,5vw,68px) clamp(18px,4vw,56px);background:transparent;color:#203329}
+.community-registration__inner{width:min(1080px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(34px,5vw,64px);align-items:center}
 .community-registration__intro{position:sticky;top:48px;padding-top:12px}
 .community-registration__eyebrow{display:flex;align-items:center;gap:10px;color:#668a55;font-size:10px;font-weight:750;letter-spacing:.16em}
 .community-registration__eyebrow i{width:7px;height:7px;border-radius:50%;background:#80a96b}
@@ -9,8 +9,8 @@
 .community-registration__footnote{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:56px;color:#849084;font-size:8px;font-weight:700;letter-spacing:.12em}
 .community-registration__footnote span:first-child{display:grid;place-items:center;width:27px;height:27px;margin-right:5px;border:1px solid #d9dfd5;border-radius:50%;color:#64815a;font-size:9px}
 .community-registration__footnote b{color:#a9b2a6;font-weight:400}
-.community-registration__form-wrap{min-width:0;border:1px solid #d9dfd5;border-radius:18px;padding:26px;background:rgba(255,254,250,.58);overflow:hidden}
-.community-registration__form{display:grid;gap:25px;padding-top:0}
+.community-registration__form-wrap{min-width:0;border:1px solid #e3e8df;border-radius:16px;padding:clamp(22px,2.8vw,32px);background:#fffefa;box-shadow:0 8px 24px rgba(31,48,35,.035);overflow:hidden}
+.community-registration__form{display:grid;gap:21px;padding-top:0}
 .community-registration__form-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px;color:#46584a;font-size:9px;font-weight:750;letter-spacing:.13em}
 .community-registration__form-heading small{display:flex;align-items:center;gap:6px;color:#89948a;font-size:8px;font-weight:600;letter-spacing:.08em}
 .community-registration__form-heading small i{width:5px;height:5px;border-radius:50%;background:#789861}
@@ -44,6 +44,6 @@
 .community-registration__success h3{margin:8px 0 0;font-size:30px;letter-spacing:-.04em;font-weight:650}
 .community-registration__success p{max-width:420px;margin:0;color:#68756b;font-size:14px;line-height:1.7}
 .community-registration__success button{padding:10px 0;border:0;border-bottom:1px solid #9caf91;background:none;color:#385a40;font:inherit;font-size:12px;cursor:pointer}
-@media(max-width:850px){.community-registration__inner{grid-template-columns:1fr;gap:40px}.community-registration__intro{position:static}.community-registration__intro h2{max-width:650px}.community-registration__intro>p{max-width:540px}.community-registration__footnote{margin-top:28px}}
-@media(max-width:560px){.community-registration{padding:62px 21px 72px}.community-registration__form-wrap{padding:19px;border-radius:15px}.community-registration__intro h2{margin:22px 0 15px;font-size:clamp(40px,11vw,52px)}.community-registration__intro>p{font-size:13px;line-height:1.75}.community-registration__footnote{gap:7px;font-size:7px}.community-registration__form{gap:21px}.community-registration__form-heading{align-items:flex-start;flex-direction:column;gap:8px}.community-registration__category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.community-registration__field-row{grid-template-columns:1fr;gap:20px}.community-registration__submit-row{align-items:stretch;flex-direction:column-reverse}.community-registration__submit-row p{max-width:none}.community-registration__submit-row button{width:100%}}
+@media(max-width:850px){.community-registration__inner{grid-template-columns:1fr;gap:28px}.community-registration__intro{position:static}.community-registration__intro h2{max-width:650px}.community-registration__intro>p{max-width:540px}.community-registration__footnote{margin-top:28px}}
+@media(max-width:560px){.community-registration{padding:46px 16px 54px}.community-registration__form-wrap{padding:20px;border-radius:14px}.community-registration__intro h2{margin:22px 0 15px;font-size:clamp(40px,11vw,52px)}.community-registration__intro>p{font-size:13px;line-height:1.75}.community-registration__footnote{gap:7px;font-size:7px}.community-registration__form{gap:21px}.community-registration__form-heading{align-items:flex-start;flex-direction:column;gap:8px}.community-registration__category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.community-registration__field-row{grid-template-columns:1fr;gap:20px}.community-registration__submit-row{align-items:stretch;flex-direction:column-reverse}.community-registration__submit-row p{max-width:none}.community-registration__submit-row button{width:100%}}
 @media(prefers-reduced-motion:reduce){.community-registration *{transition:none!important}}
