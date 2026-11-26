@@ -32,3 +32,9 @@
 .vr-footer__social a:hover{color:#6d9e58;transform:translateY(-2px)}
 @media(max-width:1100px){.vr-footer__main{grid-template-columns:minmax(250px,.9fr) 1.2fr;gap:42px}.vr-footer__statement{grid-row:span 2}.vr-footer__app{grid-column:2;max-width:100%}.vr-footer__bottom{grid-template-columns:1fr auto}.vr-footer__legal{grid-row:2;grid-column:1/-1;justify-content:center}.vr-footer__social{grid-column:2;grid-row:1}}
 @media(max-width:700px){.vr-footer{padding-top:52px}.vr-footer__brand{font-size:24px}.vr-footer__main{grid-template-columns:1fr;gap:38px;padding:42px 0 34px}.vr-footer__statement{grid-row:auto;border-right:0;padding-right:0;max-width:460px}.vr-footer__statement h2{font-size:clamp(40px,10vw,54px)}.vr-footer__description{font-size:14px}.vr-footer__navigation{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.vr-footer__group{gap:15px}.vr-footer__group h3{font-size:12px}.vr-footer__group a{font-size:11px}.vr-footer__app{grid-column:auto;min-height:0;padding:23px}.vr-footer__app h3 br{display:none}.vr-footer__bottom{grid-template-columns:1fr;justify-items:center;gap:16px;padding:20px 0 24px;text-align:center}.vr-footer__copyright{white-space:normal}.vr-footer__legal{grid-row:auto;grid-column:auto;flex-wrap:wrap;justify-content:center;gap:9px;font-size:10px}.vr-footer__social{grid-column:auto;grid-row:auto;justify-self:center;gap:22px}}
+
+
+/* Larger footer brand lockup, aligned to the footer content grid. */
+.vr-footer__brand{width:126px;height:116px;align-items:center;justify-content:flex-start}
+.vr-footer__logo{width:100%;height:100%;object-fit:contain;object-position:left center}
+@media(max-width:700px){.vr-footer__brand{width:112px;height:104px}}
